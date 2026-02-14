@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>比赛记录 on io0SaY</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in 比赛记录 on io0SaY</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 12 Feb 2026 10:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>我的第一篇文章</title>
+      <link>http://localhost:1313/posts/first-post/</link>
+      <pubDate>Thu, 12 Feb 2026 10:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/first-post/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HK100</title>
+      <link>http://localhost:1313/2026-hk100/</link>
+      <pubDate>Sat, 24 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2026-hk100/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>平安金融中心</title>
+      <link>http://localhost:1313/2026-pingan/</link>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2026-pingan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>梅沙尖</title>
+      <link>http://localhost:1313/2026-meishajian/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2026-meishajian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>安踏梅林之翼</title>
+      <link>http://localhost:1313/2025-anta-meilin/</link>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-anta-meilin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>广州马拉松</title>
+      <link>http://localhost:1313/2025-guangzhou/</link>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-guangzhou/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳马拉松</title>
+      <link>http://localhost:1313/2025-shenzhen/</link>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-shenzhen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>梅林郊野径</title>
+      <link>http://localhost:1313/2025-meilin/</link>
+      <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-meilin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>地王大厦</title>
+      <link>http://localhost:1313/2025-diwange/</link>
+      <pubDate>Sat, 22 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-diwange/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南山半程马拉松</title>
+      <link>http://localhost:1313/2025-nanshan-half/</link>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-nanshan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>小猫-光明四桥</title>
+      <link>http://localhost:1313/2025-guangming/</link>
+      <pubDate>Sun, 02 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-guangming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>崇礼100</title>
+      <link>http://localhost:1313/2025-chongli100/</link>
+      <pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-chongli100/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>大境门</title>
+      <link>http://localhost:1313/2025-dajingmen/</link>
+      <pubDate>Sat, 17 May 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-dajingmen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>罗浮山</title>
+      <link>http://localhost:1313/2025-luofushan/</link>
+      <pubDate>Sun, 23 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-luofushan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>香港马拉松</title>
+      <link>http://localhost:1313/2025-hk-marathon/</link>
+      <pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2025-hk-marathon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南山半程马拉松</title>
+      <link>http://localhost:1313/2024-nanshan-half/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-nanshan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>广州马拉松</title>
+      <link>http://localhost:1313/2024-guangzhou/</link>
+      <pubDate>Sun, 08 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-guangzhou/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>地王大厦</title>
+      <link>http://localhost:1313/2024-diwange/</link>
+      <pubDate>Sat, 16 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-diwange/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南昌半程马拉松</title>
+      <link>http://localhost:1313/2024-nanchang-half/</link>
+      <pubDate>Sun, 10 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-nanchang-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>西安马拉松</title>
+      <link>http://localhost:1313/2024-xian/</link>
+      <pubDate>Sun, 03 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-xian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>呼和浩特马拉松</title>
+      <link>http://localhost:1313/2024-huhehaote-marathon/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-huhehaote-marathon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>七道银湖山</title>
+      <link>http://localhost:1313/2024-qidao-yinhu/</link>
+      <pubDate>Sat, 10 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-qidao-yinhu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>黄龙极限耐力赛</title>
+      <link>http://localhost:1313/2024-huanglong/</link>
+      <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-huanglong/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>香山小环线</title>
+      <link>http://localhost:1313/2024-xiangshan/</link>
+      <pubDate>Fri, 03 May 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-xiangshan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>云丘山</title>
+      <link>http://localhost:1313/2024-yunqiushan/</link>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-yunqiushan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>郑开马拉松</title>
+      <link>http://localhost:1313/2024-zhengkai-marathon/</link>
+      <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-zhengkai-marathon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>无锡马拉松</title>
+      <link>http://localhost:1313/2024-wuxi/</link>
+      <pubDate>Sun, 24 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-wuxi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>晋江穿越三山越野赛</title>
+      <link>http://localhost:1313/2024-jinjiang-crossing/</link>
+      <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-jinjiang-crossing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HK100越野赛</title>
+      <link>http://localhost:1313/2024-hk100/</link>
+      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2024-hk100/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>汕头半程马拉松</title>
+      <link>http://localhost:1313/2023-shantou-half/</link>
+      <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-shantou-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The North Face 100 Hong Kong</title>
+      <link>http://localhost:1313/2023-tnf-hongkong/</link>
+      <pubDate>Sat, 09 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-tnf-hongkong/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳马拉松</title>
+      <link>http://localhost:1313/2023-shenzhen/</link>
+      <pubDate>Sun, 03 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-shenzhen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南山半程马拉松</title>
+      <link>http://localhost:1313/2023-nanshan-half/</link>
+      <pubDate>Sun, 26 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-nanshan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>地王大厦</title>
+      <link>http://localhost:1313/2023-diwange/</link>
+      <pubDate>Sat, 18 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-diwange/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>光明半程马拉松</title>
+      <link>http://localhost:1313/2023-guangming-half/</link>
+      <pubDate>Sun, 05 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-guangming-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>四姑娘山</title>
+      <link>http://localhost:1313/2023-siguniang/</link>
+      <pubDate>Tue, 03 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-siguniang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳远足径-低碳城</title>
+      <link>http://localhost:1313/2023-shenzhen-lowcarbon/</link>
+      <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-shenzhen-lowcarbon/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳远足径-阳台山</title>
+      <link>http://localhost:1313/2023-shenzhen-yangtai/</link>
+      <pubDate>Sat, 24 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-shenzhen-yangtai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳远足径-凤凰山</title>
+      <link>http://localhost:1313/2023-shenzhen-fenghuang/</link>
+      <pubDate>Sat, 20 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-shenzhen-fenghuang/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>将乐100 之九仙山</title>
+      <link>http://localhost:1313/2023-jiangle-jiuxianshan/</link>
+      <pubDate>Sat, 13 May 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-jiangle-jiuxianshan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>小猫快跑-羊台山</title>
+      <link>http://localhost:1313/2023-yangtai/</link>
+      <pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-yangtai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳远足径-光明站</title>
+      <link>http://localhost:1313/2023-shenzhen-guangming/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-shenzhen-guangming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HK100越野赛</title>
+      <link>http://localhost:1313/2023-hk100/</link>
+      <pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2023-hk100/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南山半程马拉松</title>
+      <link>http://localhost:1313/2022-nanshan-half/</link>
+      <pubDate>Sun, 18 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2022-nanshan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>平安金融中心</title>
+      <link>http://localhost:1313/2021-pingan/</link>
+      <pubDate>Sat, 20 Nov 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2021-pingan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TNF莫干山越野赛</title>
+      <link>http://localhost:1313/2021-tnf-moganshan/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2021-tnf-moganshan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>汕头南澳越野赛</title>
+      <link>http://localhost:1313/2021-shantou-nanao/</link>
+      <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2021-shantou-nanao/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>越野东海RDH25</title>
+      <link>http://localhost:1313/2021-donghai-rdh25/</link>
+      <pubDate>Sat, 15 May 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2021-donghai-rdh25/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>盐田2035越野赛</title>
+      <link>http://localhost:1313/2021-yantian2035/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2021-yantian2035/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>广州100越野赛</title>
+      <link>http://localhost:1313/2021-guangzhou100/</link>
+      <pubDate>Sat, 09 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2021-guangzhou100/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>舟山1390海岛越野赛</title>
+      <link>http://localhost:1313/2021-zhoushan1390/</link>
+      <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2021-zhoushan1390/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>环大鹏100·古道沧海</title>
+      <link>http://localhost:1313/2020-huan-dapeng/</link>
+      <pubDate>Sun, 20 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2020-huan-dapeng/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>广州马拉松</title>
+      <link>http://localhost:1313/2020-guangzhou/</link>
+      <pubDate>Sun, 13 Dec 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2020-guangzhou/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>姑婆山</title>
+      <link>http://localhost:1313/2020-guposhan/</link>
+      <pubDate>Sat, 21 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2020-guposhan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>从化100</title>
+      <link>http://localhost:1313/2020-conghua100/</link>
+      <pubDate>Sat, 07 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2020-conghua100/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>小猫快跑-羊台山</title>
+      <link>http://localhost:1313/2020-yangtai/</link>
+      <pubDate>Sun, 01 Nov 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2020-yangtai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>小猫快跑-梧桐山</title>
+      <link>http://localhost:1313/2020-xiaomao/</link>
+      <pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2020-xiaomao/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HK100</title>
+      <link>http://localhost:1313/2020-hk100/</link>
+      <pubDate>Sat, 18 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2020-hk100/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>大鹏马拉松</title>
+      <link>http://localhost:1313/2020-dapeng/</link>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2020-dapeng/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳马拉松</title>
+      <link>http://localhost:1313/2019-shenzhen/</link>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-shenzhen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>The North Face 100 HongKong</title>
+      <link>http://localhost:1313/2019-tnf100-hk/</link>
+      <pubDate>Sat, 14 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-tnf100-hk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>广州马拉松</title>
+      <link>http://localhost:1313/2019-guangzhou/</link>
+      <pubDate>Sun, 08 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-guangzhou/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HK168-Half</title>
+      <link>http://localhost:1313/2019-hk168-half/</link>
+      <pubDate>Sat, 30 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-hk168-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南山半程马拉松</title>
+      <link>http://localhost:1313/2019-nanshan-half/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-nanshan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>地王大厦</title>
+      <link>http://localhost:1313/2019-diwange/</link>
+      <pubDate>Sat, 23 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-diwange/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>大武夷山径赛</title>
+      <link>http://localhost:1313/2019-wuyishan/</link>
+      <pubDate>Sat, 02 Nov 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-wuyishan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>梧桐三登</title>
+      <link>http://localhost:1313/2019-wutong/</link>
+      <pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-wutong/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>世纪汇大厦</title>
+      <link>http://localhost:1313/2019-shijihui/</link>
+      <pubDate>Sat, 19 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-shijihui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>武功山</title>
+      <link>http://localhost:1313/2019-wugong/</link>
+      <pubDate>Sat, 07 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-wugong/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>百里杜鹃</title>
+      <link>http://localhost:1313/2019-baili/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-baili/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>小猫快跑-梧桐山</title>
+      <link>http://localhost:1313/2019-xiaomao/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-xiaomao/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>京基100大厦</title>
+      <link>http://localhost:1313/2019-jingji/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-jingji/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>平安金融中心</title>
+      <link>http://localhost:1313/2019-pingan/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-pingan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>广州100</title>
+      <link>http://localhost:1313/2019-guangzhou100/</link>
+      <pubDate>Sat, 25 May 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-guangzhou100/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>大鹏益行山海</title>
+      <link>http://localhost:1313/2019-dapeng-yixing/</link>
+      <pubDate>Mon, 15 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-dapeng-yixing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>马峦四峰越野跑</title>
+      <link>http://localhost:1313/2019-maluan/</link>
+      <pubDate>Mon, 01 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-maluan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>重庆马拉松</title>
+      <link>http://localhost:1313/2019-chongqing/</link>
+      <pubDate>Sun, 31 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-chongqing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>无锡马拉松</title>
+      <link>http://localhost:1313/2019-wuxi/</link>
+      <pubDate>Sun, 24 Mar 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-wuxi/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>厦门马拉松</title>
+      <link>http://localhost:1313/2019-xiamen/</link>
+      <pubDate>Sun, 06 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2019-xiamen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>宝安半程马拉松</title>
+      <link>http://localhost:1313/2018-baoan-half/</link>
+      <pubDate>Sun, 30 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-baoan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>黄埔半程马拉松</title>
+      <link>http://localhost:1313/2018-huangpu-half/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-huangpu-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>台北马拉松</title>
+      <link>http://localhost:1313/2018-taipei/</link>
+      <pubDate>Sun, 09 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-taipei/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>澳门马拉松</title>
+      <link>http://localhost:1313/2018-macao/</link>
+      <pubDate>Sun, 02 Dec 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-macao/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南山半程马拉松</title>
+      <link>http://localhost:1313/2018-nanshan-half/</link>
+      <pubDate>Sun, 25 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-nanshan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>地王大厦</title>
+      <link>http://localhost:1313/2018-diwange/</link>
+      <pubDate>Sat, 24 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-diwange/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>巽寮湾半程马拉松</title>
+      <link>http://localhost:1313/2018-xunliaowan-half/</link>
+      <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-xunliaowan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>杭州马拉松</title>
+      <link>http://localhost:1313/2018-hangzhou/</link>
+      <pubDate>Sun, 04 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-hangzhou/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>兰州马拉松</title>
+      <link>http://localhost:1313/2018-lanzhou/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-lanzhou/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>武汉马拉松</title>
+      <link>http://localhost:1313/2018-wuhan/</link>
+      <pubDate>Sun, 15 Apr 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-wuhan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>重庆马拉松</title>
+      <link>http://localhost:1313/2018-chongqing/</link>
+      <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-chongqing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>海南马拉松</title>
+      <link>http://localhost:1313/2018-hainan/</link>
+      <pubDate>Sun, 14 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-hainan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>厦门马拉松</title>
+      <link>http://localhost:1313/2018-xiamen/</link>
+      <pubDate>Sun, 07 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-xiamen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>大鹏新年马拉松</title>
+      <link>http://localhost:1313/2018-dapeng/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2018-dapeng/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>黄埔半程马拉松</title>
+      <link>http://localhost:1313/2017-huangpu-half/</link>
+      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-huangpu-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳马拉松</title>
+      <link>http://localhost:1313/2017-shenzhen/</link>
+      <pubDate>Sun, 17 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-shenzhen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>广州马拉松</title>
+      <link>http://localhost:1313/2017-guangzhou/</link>
+      <pubDate>Sun, 10 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-guangzhou/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>东莞马拉松</title>
+      <link>http://localhost:1313/2017-dongguan/</link>
+      <pubDate>Sun, 26 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-dongguan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>桂林半程马拉松</title>
+      <link>http://localhost:1313/2017-guilin-half/</link>
+      <pubDate>Sun, 19 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-guilin-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>长沙马拉松</title>
+      <link>http://localhost:1313/2017-changsha/</link>
+      <pubDate>Sat, 18 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-changsha/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>杭州马拉松</title>
+      <link>http://localhost:1313/2017-hangzhou/</link>
+      <pubDate>Sun, 05 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-hangzhou/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>西樵山半程马拉松</title>
+      <link>http://localhost:1313/2017-xiqiaoshan-half/</link>
+      <pubDate>Sun, 29 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-xiqiaoshan-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南京马拉松</title>
+      <link>http://localhost:1313/2017-nanjing/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-nanjing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>成都半程马拉松</title>
+      <link>http://localhost:1313/2017-chengdu-half/</link>
+      <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-chengdu-half/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>北京马拉松</title>
+      <link>http://localhost:1313/2017-beijing/</link>
+      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-beijing/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>清远马拉松</title>
+      <link>http://localhost:1313/2017-qingyuan/</link>
+      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-qingyuan/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>东莞森林马拉松</title>
+      <link>http://localhost:1313/2017-dongguan-forest/</link>
+      <pubDate>Sun, 05 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2017-dongguan-forest/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>深圳马拉松</title>
+      <link>http://localhost:1313/2016-shenzhen/</link>
+      <pubDate>Sun, 18 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2016-shenzhen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>南山半程马拉松</title>
+      <link>http://localhost:1313/2016-nanshan-half/</link>
+      <pubDate>Sun, 27 Nov 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/2016-nanshan-half/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
