@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [bep]: https://github.com/bep
 [bugs]: https://github.com/gohugoio/hugo/issues?q=is%3Aopen+is%3Aissue+label%3ABug
 [contributing]: CONTRIBUTING.md
@@ -290,3 +291,6 @@ howett.net/plist="v1.0.0"
 software.sslmate.com/src/go-pkcs12="v0.2.0"
 ```
 </details>
+=======
+# io0SaY.github.io
+>>>>>>> ff324f82e782adaf50bfbb9d9677c92b7c74499d
