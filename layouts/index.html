@@ -2232,7 +2232,7 @@
                 
                 // 使用fetch API从外部数据源加载详细的中国省份GeoJSON数据
                 // 使用更可靠的数据源，避免CORS问题
-                fetch('https://raw.githubusercontent.com/GeoJSON-CN/geojson-cn/master/100000.json')
+                fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
                     .then(function(response) {
                         console.log('GeoJSON响应状态:', response.status);
                         if (!response.ok) {
