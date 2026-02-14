@@ -1,0 +1,2233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>io0SaY 的运动足迹</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #374151;
+            --secondary-color: #4b5563;
+            --accent-color: #6b7280;
+            --background-color: #f3f4f6;
+            --card-background: #ffffff;
+            --text-primary: #1f2937;
+            --text-secondary: #4b5563;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+            --radius-sm: 0.25rem;
+            --radius-md: 0.375rem;
+            --radius-lg: 0.5rem;
+            --radius-xl: 0.75rem;
+            --radius-2xl: 1rem;
+            --radius-3xl: 1.5rem;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --transition-fast: 0.15s ease-in-out;
+            --transition-normal: 0.3s ease-in-out;
+            --transition-slow: 0.5s ease-in-out;
+        }
+        
+        body {
+            font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-xl) var(--spacing-md);
+        }
+        
+        /* 头部区域 */
+        header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            padding: var(--spacing-2xl) var(--spacing-xl);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 40%, #06b6d4 70%, #14b8a6 100%);
+            border-radius: var(--radius-3xl);
+            color: white;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 100px rgba(6, 182, 212, 0.15);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        header:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.3), 0 0 150px rgba(6, 182, 212, 0.25);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 120%, rgba(6, 182, 212, 0.2) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 12s ease-in-out infinite;
+            z-index: 0;
+        }
+        
+        @keyframes shimmer {
+            0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(0deg); }
+            50% { transform: translateX(100%) translateY(100%) rotate(180deg); }
+            100% { transform: translateX(-100%) translateY(-100%) rotate(360deg); }
+        }
+        
+        header .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            letter-spacing: 0.02em;
+            color: #ffffff;
+            display: inline-block;
+            animation: fadeInDown 0.8s ease forwards;
+            position: relative;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            padding: 0 var(--spacing-md);
+        }
+        
+        header h1::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 15%;
+            width: 70%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            border-radius: 9999px;
+            animation: subtlePulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes subtlePulse {
+            0%, 100% { opacity: 0.3; transform: scaleX(0.9); }
+            50% { opacity: 0.8; transform: scaleX(1); }
+        }
+        
+        header p {
+            font-size: 1.375rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 400;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+            position: relative;
+            line-height: 1.6;
+            padding: 0 var(--spacing-xl);
+        }
+        
+        /* 装饰性几何元素 */
+        header .decorative-element {
+            position: absolute;
+            z-index: 0;
+        }
+        
+        header .decorative-element:nth-child(1) {
+            top: 15%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: gentleFloat 8s ease-in-out infinite;
+        }
+        
+        header .decorative-element:nth-child(2) {
+            bottom: 20%;
+            right: 15%;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: gentleFloat 10s ease-in-out infinite reverse;
+        }
+        
+        header .decorative-element:nth-child(3) {
+            top: 35%;
+            right: 10%;
+            width: 30px;
+            height: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: gentleFloat 9s ease-in-out infinite;
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.2; }
+            25% { transform: translateY(-8px) translateX(4px) rotate(90deg); opacity: 0.4; }
+            50% { transform: translateY(-4px) translateX(-4px) rotate(180deg); opacity: 0.3; }
+            75% { transform: translateY(8px) translateX(-2px) rotate(270deg); opacity: 0.5; }
+            100% { transform: translateY(0px) translateX(0px) rotate(360deg); opacity: 0.2; }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { transform: translateY(-50%) scale(0.8); opacity: 0.5; }
+            50% { transform: translateY(-50%) scale(1.2); opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 筛选功能样式 */
+        .filter-section {
+            margin-bottom: var(--spacing-xl);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .filter-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .year-filter-container {
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(226, 232, 240, 0.5);
+        }
+        
+        .year-filter-wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            width: 100%;
+        }
+        
+        .year-filter-all {
+            flex-shrink: 0;
+        }
+        
+        .year-filter-scroll {
+            display: flex;
+            gap: var(--spacing-md);
+            overflow-x: auto;
+            padding: var(--spacing-sm) 0;
+            flex-grow: 1;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(148, 163, 184, 0.3) rgba(226, 232, 240, 0.2);
+        }
+        
+        .year-filter-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .year-filter-scroll::-webkit-scrollbar-track {
+            background: rgba(226, 232, 240, 0.2);
+            border-radius: 9999px;
+        }
+        
+        .year-filter-scroll::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.3);
+            border-radius: 9999px;
+        }
+        
+        .year-filter-scroll::-webkit-scrollbar-thumb:hover {
+            background: rgba(148, 163, 184, 0.5);
+        }
+        
+        .year-filter-buttons {
+            display: flex;
+            gap: var(--spacing-md);
+            overflow-x: auto;
+            padding: var(--spacing-sm) 0;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(148, 163, 184, 0.3) rgba(226, 232, 240, 0.2);
+        }
+        
+        .year-filter-buttons::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .year-filter-buttons::-webkit-scrollbar-track {
+            background: rgba(226, 232, 240, 0.2);
+            border-radius: 9999px;
+        }
+        
+        .year-filter-buttons::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.3);
+            border-radius: 9999px;
+        }
+        
+        .year-filter-buttons::-webkit-scrollbar-thumb:hover {
+            background: rgba(148, 163, 184, 0.5);
+        }
+        
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 9999px;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #3b82f6;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+            min-width: 80px;
+        }
+        
+        .filter-btn::before {
+            font-size: 1rem;
+            transition: transform 0.4s ease;
+        }
+        
+        .filter-btn:hover::before {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .filter-btn[data-filter="all"]::before {
+            content: "🏆";
+        }
+        
+        .filter-btn[data-filter="marathon"]::before {
+            content: "🏃";
+        }
+        
+        .filter-btn[data-filter="halfmarathon"]::before {
+            content: "🏃‍♀️";
+        }
+        
+        .filter-btn[data-filter="trail"]::before {
+            content: "🌲";
+        }
+        
+        .filter-btn[data-filter="hiking"]::before {
+            content: "⛰️";
+        }
+        
+        .filter-btn[data-filter="stairs"]::before {
+            content: "🏙️";
+        }
+        
+        .filter-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.15), 0 4px 6px -4px rgba(99, 102, 241, 0.1);
+        }
+        
+        /* 不同类型筛选按钮的悬停效果 */
+        .filter-btn[data-filter="all"]:hover {
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        
+        .filter-btn[data-filter="marathon"]:hover {
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        
+        .filter-btn[data-filter="halfmarathon"]:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+        }
+        
+        .filter-btn[data-filter="trail"]:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+        }
+        
+        .filter-btn[data-filter="hiking"]:hover {
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+        
+        .filter-btn[data-filter="stairs"]:hover {
+            border-color: rgba(236, 72, 153, 0.4);
+        }
+        
+        /* 不同类型筛选按钮的激活状态 */
+        .filter-btn.active {
+            color: white;
+            border-color: currentColor;
+            box-shadow: 0 8px 16px -6px rgba(0, 0, 0, 0.2), 0 4px 8px -4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px) scale(1.01);
+            z-index: 10;
+        }
+        
+        /* 类型筛选按钮激活状态 */
+        .filter-btn[data-filter="all"].active {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.9), rgba(6, 182, 212, 0.9));
+        }
+        
+        .filter-btn[data-filter="marathon"].active {
+            background: linear-gradient(135deg, rgba(147, 197, 253, 0.9), rgba(59, 130, 246, 0.9));
+        }
+        
+        .filter-btn[data-filter="halfmarathon"].active {
+            background: linear-gradient(135deg, rgba(196, 181, 253, 0.9), rgba(139, 92, 246, 0.9));
+        }
+        
+        .filter-btn[data-filter="trail"].active {
+            background: linear-gradient(135deg, rgba(252, 211, 77, 0.9), rgba(245, 158, 11, 0.9));
+        }
+        
+        .filter-btn[data-filter="hiking"].active {
+            background: linear-gradient(135deg, rgba(110, 231, 183, 0.9), rgba(16, 185, 129, 0.9));
+        }
+        
+        .filter-btn[data-filter="stairs"].active {
+            background: linear-gradient(135deg, rgba(251, 113, 133, 0.9), rgba(236, 72, 153, 0.9));
+        }
+        
+        /* 年份筛选按钮激活状态 */
+        .filter-btn[data-year="all"].active {
+            background: linear-gradient(135deg, rgba(8, 145, 178, 0.9), rgba(6, 182, 212, 0.9));
+        }
+        
+        .filter-btn[data-year].active {
+            background: linear-gradient(135deg, rgba(147, 197, 253, 0.9), rgba(59, 130, 246, 0.9));
+        }
+        
+        .filter-btn.active::before {
+            transform: scale(1.2) rotate(10deg);
+        }
+        
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: rotate(0deg);
+            transition: transform 0.6s ease;
+            opacity: 0;
+        }
+        
+        .filter-btn:hover::after {
+            transform: rotate(360deg);
+            opacity: 1;
+        }
+        
+        .filter-btn.active::after {
+            transform: rotate(360deg);
+            opacity: 1;
+        }
+        
+
+        
+        /* 顶部统计 */
+        .stats-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-2xl);
+            box-shadow: var(--shadow-md);
+            margin-bottom: var(--spacing-2xl);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-md);
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: var(--radius-xl);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .stat-item:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1;
+            transition: all 0.4s ease;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+        
+        .stat-item:hover .stat-value {
+            transform: scale(1.1);
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            transition: all 0.4s ease;
+        }
+        
+        .stat-item:hover .stat-label {
+            color: #3b82f6;
+        }
+        
+        /* 比赛部分 */
+        .race-section {
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .race-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-xl);
+            color: #1e3a8a;
+            position: relative;
+            padding-bottom: var(--spacing-md);
+            letter-spacing: -0.025em;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+        
+        .race-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            border-radius: 9999px;
+        }
+        
+        .race-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            align-items: start;
+        }
+        
+        /* 比赛卡片 */
+        .race-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-md);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(5px);
+            min-height: 400px;
+            height: 100%;
+        }
+        
+        .race-card-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        
+        .race-info {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .race-card-content .race-info {
+            flex-grow: 1;
+        }
+        
+        .race-card .completed-time,
+        .race-card .countdown {
+            margin-top: auto;
+        }
+        
+        .race-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        /* 不同类型卡片的颜色区分 */
+        .race-card[data-type="marathon"]::before {
+            background: linear-gradient(90deg, #93c5fd, #3b82f6);
+        }
+        
+        .race-card[data-type="halfmarathon"]::before {
+            background: linear-gradient(90deg, #c4b5fd, #8b5cf6);
+        }
+        
+        .race-card[data-type="trail"]::before {
+            background: linear-gradient(90deg, #fcd34d, #f59e0b);
+        }
+        
+        .race-card[data-type="hiking"]::before {
+            background: linear-gradient(90deg, #6ee7b7, #10b981);
+        }
+        
+        .race-card[data-type="stairs"]::before {
+            background: linear-gradient(90deg, #f472b6, #ec4899);
+        }
+        
+        .race-card[data-type="other"]::before {
+            background: linear-gradient(90deg, #cbd5e1, #64748b);
+        }
+        
+        .race-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 10px 10px -5px rgb(0 0 0 / 0.04);
+            border-color: rgba(79, 70, 229, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+        }
+        
+        .race-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .race-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .race-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'SF Pro Display', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .race-card:hover .race-title {
+            color: var(--secondary-color);
+        }
+        
+        .race-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .race-card:hover .race-date {
+            color: var(--secondary-color);
+        }
+        
+        .race-feeling {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(99, 102, 241, 0.04) 100%);
+            border-left: 3px solid var(--secondary-color);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            font-weight: 400;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .race-card:hover .race-feeling {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.12) 0%, rgba(99, 102, 241, 0.08) 100%);
+        }
+        
+        .race-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            flex-grow: 1;
+        }
+        
+        .race-info-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .race-info-label {
+            font-size: 0.625rem;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .race-card:hover .race-info-label {
+            color: var(--secondary-color);
+        }
+        
+        .race-info-value {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.2;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .race-card:hover .race-info-value {
+            color: var(--secondary-color);
+        }
+        
+        /* 训练进度 */
+        .race-progress {
+            margin: var(--spacing-sm) 0;
+        }
+        
+        .race-progress-label {
+            font-size: 0.625rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+        
+        .race-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(226, 232, 240, 0.5);
+            border-radius: 9999px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+        
+        .race-progress-fill {
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 0.3s ease;
+        }
+        
+        /* 不同类型卡片的进度条颜色 */
+        .race-card[data-type="marathon"] .race-progress-fill {
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+        }
+        
+        .race-card[data-type="halfmarathon"] .race-progress-fill {
+            background: linear-gradient(90deg, #c4b5fd, #8b5cf6);
+        }
+        
+        .race-card[data-type="trail"] .race-progress-fill {
+            background: linear-gradient(90deg, #fcd34d, #f59e0b);
+        }
+        
+        .race-card[data-type="hiking"] .race-progress-fill {
+            background: linear-gradient(90deg, #6ee7b7, #10b981);
+        }
+        
+        .race-card[data-type="stairs"] .race-progress-fill {
+            background: linear-gradient(90deg, #f472b6, #ec4899);
+        }
+        
+        .race-progress-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: right;
+        }
+        
+        /* 状态信息 */
+        .race-status {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .race-status-item {
+            flex: 1;
+            background: rgba(241, 245, 249, 0.8);
+            padding: var(--spacing-xs);
+            border-radius: var(--radius-sm);
+            font-size: 0.625rem;
+            text-align: center;
+        }
+        
+        .race-status-label {
+            display: block;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            font-weight: 500;
+        }
+        
+        .race-status-value {
+            display: block;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        
+        .completed-time {
+            color: white;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-lg);
+            margin-top: auto;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+        }
+        
+        .completed-time-value {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 倒计时 */
+        .countdown {
+            color: white;
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-lg);
+            margin-top: auto;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+        }
+        
+        /* 即将开始和已结束部分的颜色区分 */
+        .upcoming-section h2 {
+            color: #3b82f6;
+            border-bottom: 3px solid #3b82f6;
+        }
+        
+        .completed-section h2 {
+            color: #10b981;
+            border-bottom: 3px solid #10b981;
+        }
+        
+        /* 不同类型卡片的计时颜色区分 */
+        .race-card[data-type="marathon"] .completed-time,
+        .race-card[data-type="marathon"] .countdown {
+            background: linear-gradient(135deg, #93c5fd, #3b82f6);
+        }
+        
+        .race-card[data-type="halfmarathon"] .completed-time,
+        .race-card[data-type="halfmarathon"] .countdown {
+            background: linear-gradient(135deg, #c4b5fd, #8b5cf6);
+        }
+        
+        .race-card[data-type="trail"] .completed-time,
+        .race-card[data-type="trail"] .countdown {
+            background: linear-gradient(135deg, #fcd34d, #f59e0b);
+        }
+        
+        .race-card[data-type="hiking"] .completed-time,
+        .race-card[data-type="hiking"] .countdown {
+            background: linear-gradient(135deg, #6ee7b7, #10b981);
+        }
+        
+        .race-card[data-type="stairs"] .completed-time,
+        .race-card[data-type="stairs"] .countdown {
+            background: linear-gradient(135deg, #f472b6, #ec4899);
+        }
+        
+        .race-card[data-type="other"] .completed-time,
+        .race-card[data-type="other"] .countdown {
+            background: linear-gradient(135deg, #cbd5e1, #64748b);
+        }
+        
+        .countdown:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .countdown-time {
+            font-size: 0.875rem;
+            font-weight: 800;
+            margin-top: 2px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 状态徽章 */
+        .status-badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-completed {
+    background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    color: white;
+}
+
+.status-dnf {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    color: white;
+}
+
+.status-dnf:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+}
+        
+        .status-completed:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .status-starting {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+        }
+        
+        .status-starting:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* 页脚 */
+        footer {
+            text-align: center;
+            margin-top: var(--spacing-2xl);
+            padding: var(--spacing-xl) 0;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            border-top: 1px solid var(--border-color);
+            background: var(--card-background);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        footer p {
+            font-weight: 400;
+            letter-spacing: 0.025em;
+        }
+        
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .race-card {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        .race-card:nth-child(1) { animation-delay: 0.1s; }
+        .race-card:nth-child(2) { animation-delay: 0.2s; }
+        .race-card:nth-child(3) { animation-delay: 0.3s; }
+        .race-card:nth-child(4) { animation-delay: 0.4s; }
+        .race-card:nth-child(5) { animation-delay: 0.5s; }
+        .race-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+            
+            header {
+                padding: var(--spacing-xl) var(--spacing-lg);
+            }
+            
+            header h1 {
+                font-size: 2.25rem;
+            }
+            
+            header p {
+                font-size: 1.125rem;
+            }
+            
+            .race-grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+            
+            .race-card {
+                padding: var(--spacing-sm);
+            }
+            
+            .race-title {
+                font-size: 1rem;
+            }
+            
+            .race-date {
+                font-size: 0.7rem;
+            }
+            
+            .race-feeling {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+            
+            .race-info {
+                gap: var(--spacing-xs);
+            }
+            
+            .race-info-value {
+                font-size: 0.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--spacing-md);
+            }
+            
+            .filter-buttons {
+                gap: var(--spacing-xs);
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: var(--spacing-sm);
+            }
+            
+            .filter-btn {
+                padding: var(--spacing-xs) var(--spacing-md);
+                font-size: 0.8rem;
+                white-space: nowrap;
+            }
+            
+            .race-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-sm);
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                justify-content: flex-start;
+            }
+            
+            header h1 {
+                font-size: 1.875rem;
+            }
+            
+            .race-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .race-card {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- 装饰性几何元素 -->
+            <div class="decorative-element"></div>
+            <div class="decorative-element"></div>
+            <div class="decorative-element"></div>
+            
+            <div class="header-content">
+                <h1>io0SaY 的运动足迹</h1>
+                <p>记录个人奔跑的汗水，分享亲子运动的欢笑。每一步都是成长，每一刻都是回忆。</p>
+            </div>
+        </header>
+        
+        <!-- 筛选功能 -->
+        <div class="filter-section">
+            <!-- 类型筛选 -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">全部</button>
+                <button class="filter-btn" data-filter="marathon">马拉松</button>
+                <button class="filter-btn" data-filter="halfmarathon">半程马拉松</button>
+                <button class="filter-btn" data-filter="trail">越野</button>
+                <button class="filter-btn" data-filter="hiking">徒步</button>
+                <button class="filter-btn" data-filter="stairs">登楼</button>
+            </div>
+            
+            <!-- 年份筛选 -->
+            <div class="year-filter-container">
+                <div class="year-filter-wrapper">
+                    <!-- 固定的"全部年份"按钮 -->
+                    <div class="year-filter-all">
+                        <button class="filter-btn active" data-year="all">全部年份</button>
+                    </div>
+                    
+                    <!-- 可滚动的年份按钮 -->
+                    <div class="year-filter-scroll">
+                        <button class="filter-btn" data-year="2028">2028</button>
+                        <button class="filter-btn" data-year="2027">2027</button>
+                        <button class="filter-btn" data-year="2026">2026</button>
+                        <button class="filter-btn" data-year="2025">2025</button>
+                        <button class="filter-btn" data-year="2024">2024</button>
+                        <button class="filter-btn" data-year="2023">2023</button>
+                        <button class="filter-btn" data-year="2022">2022</button>
+                        <button class="filter-btn" data-year="2021">2021</button>
+                        <button class="filter-btn" data-year="2020">2020</button>
+                        <button class="filter-btn" data-year="2019">2019</button>
+                        <button class="filter-btn" data-year="2018">2018</button>
+                        <button class="filter-btn" data-year="2017">2017</button>
+                        <button class="filter-btn" data-year="2016">2016</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 顶部统计 -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <!-- 统计数据 -->
+                <div class="stat-item" data-stat="total">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Total Activities</div>
+                </div>
+                <div class="stat-item" data-stat="marathon">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Marathon Events</div>
+                </div>
+                <div class="stat-item" data-stat="halfmarathon">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Half Marathon Events</div>
+                </div>
+                <div class="stat-item" data-stat="best-marathon">
+                    <div class="stat-value">N/A</div>
+                    <div class="stat-label">Best Marathon</div>
+                </div>
+                <div class="stat-item" data-stat="best-halfmarathon">
+                    <div class="stat-value">N/A</div>
+                    <div class="stat-label">Best Half Marathon</div>
+                </div>
+                <div class="stat-item" data-stat="trail">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Trail Events</div>
+                </div>
+                <div class="stat-item" data-stat="hiking">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Hiking Trips</div>
+                </div>
+                <div class="stat-item" data-stat="elevation">
+                    <div class="stat-value">0+</div>
+                    <div class="stat-label">Elevation Gain</div>
+                </div>
+                <div class="stat-item" data-stat="100km">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">100KM+ Events</div>
+                </div>
+                <div class="stat-item" data-stat="dnf">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">DNF</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 即将开始的活动 -->
+        <div class="race-section upcoming-section">
+            <h2>待开始</h2>
+            
+            <div class="race-grid">
+            <!-- 硬编码的活动信息 -->
+            <div class="race-card" data-type="marathon">
+                <div class="race-card-content">
+                    <div class="race-header">
+                        <div>
+                            <div class="race-title">2026 无锡马拉松</div>
+                            <div class="race-date">2026年3月22日</div>
+                        </div>
+                    </div>
+                    <div class="race-feeling">
+                        <div class="race-feeling-content">中国最美马拉松赛道之一，沿途欣赏太湖风光和樱花盛景。参赛目标：突破3小时30分，创造个人最佳成绩</div>
+                    </div>
+                    <div class="race-info">
+                        <div class="race-info-item">
+                            <div class="race-info-label">Distance</div>
+                            <div class="race-info-value">42.195km</div>
+                        </div>
+                        <div class="race-info-item">
+                            <div class="race-info-label">Location</div>
+                            <div class="race-info-value">中国 江苏 无锡</div>
+                        </div>
+                    </div>
+                    <div class="race-progress">
+                        <div class="race-progress-label">训练进度</div>
+                        <div class="race-progress-bar">
+                            <div class="race-progress-fill" style="width: 60%"></div>
+                        </div>
+                        <div class="race-progress-text">60%</div>
+                    </div>
+                    <div class="race-status">
+                        <div class="race-status-item">
+                            <span class="race-status-label">装备</span>
+                            <span class="race-status-value">已准备</span>
+                        </div>
+                        <div class="race-status-item">
+                            <span class="race-status-label">饮食</span>
+                            <span class="race-status-value">计划中</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="countdown">
+                    <div class="countdown-time" id="wuxi-countdown">38天 07时 30分 00秒</div>
+                </div>
+            </div>
+            
+            <div class="race-card" data-type="marathon">
+                <div class="race-card-content">
+                    <div class="race-header">
+                        <div>
+                            <div class="race-title">2026 淮安马拉松</div>
+                            <div class="race-date">2026年4月12日</div>
+                        </div>
+                    </div>
+                    <div class="race-feeling">
+                        <div class="race-feeling-content">历史文化名城赛道，感受淮安的运河文化和淮扬美食。参赛目标：稳定发挥，争取3小时35分完赛</div>
+                    </div>
+                    <div class="race-info">
+                        <div class="race-info-item">
+                            <div class="race-info-label">Distance</div>
+                            <div class="race-info-value">42.195km</div>
+                        </div>
+                        <div class="race-info-item">
+                            <div class="race-info-label">Location</div>
+                            <div class="race-info-value">中国 江苏 淮安</div>
+                        </div>
+                    </div>
+                    <div class="race-progress">
+                        <div class="race-progress-label">训练进度</div>
+                        <div class="race-progress-bar">
+                            <div class="race-progress-fill" style="width: 45%"></div>
+                        </div>
+                        <div class="race-progress-text">45%</div>
+                    </div>
+                    <div class="race-status">
+                        <div class="race-status-item">
+                            <span class="race-status-label">装备</span>
+                            <span class="race-status-value">准备中</span>
+                        </div>
+                        <div class="race-status-item">
+                            <span class="race-status-label">饮食</span>
+                            <span class="race-status-value">未开始</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="countdown">
+                    <div class="countdown-time" id="huaian-countdown">59天 07时 30分 00秒</div>
+                </div>
+            </div>
+            
+            <div class="race-card" data-type="trail">
+                <div class="race-card-content">
+                    <div class="race-header">
+                        <div>
+                            <div class="race-title">2026 阳春鸡笼顶越野赛</div>
+                            <div class="race-date">2026年4月26日</div>
+                        </div>
+                    </div>
+                    <div class="race-feeling">
+                        <div class="race-feeling-content">广东著名越野赛道，穿越鸡笼顶山脉，欣赏高山草甸和云海景观。参赛目标：安全完赛，享受越野乐趣，争取4.5小时内完成</div>
+                    </div>
+                    <div class="race-info">
+                        <div class="race-info-item">
+                            <div class="race-info-label">Distance</div>
+                            <div class="race-info-value">30km</div>
+                        </div>
+                        <div class="race-info-item">
+                            <div class="race-info-label">Location</div>
+                            <div class="race-info-value">中国 广东 阳春</div>
+                        </div>
+                    </div>
+                    <div class="race-progress">
+                        <div class="race-progress-label">训练进度</div>
+                        <div class="race-progress-bar">
+                            <div class="race-progress-fill" style="width: 30%"></div>
+                        </div>
+                        <div class="race-progress-text">30%</div>
+                    </div>
+                    <div class="race-status">
+                        <div class="race-status-item">
+                            <span class="race-status-label">装备</span>
+                            <span class="race-status-value">未开始</span>
+                        </div>
+                        <div class="race-status-item">
+                            <span class="race-status-label">路线</span>
+                            <span class="race-status-value">研究中</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="countdown">
+                    <div class="countdown-time" id="yangchun-countdown">73天 07时 30分 00秒</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+        <!-- 已结束的活动 -->
+        <div class="race-section completed-section">
+            <h2>已结束</h2>
+            
+            <div class="race-grid">
+            {{ $allRaces := where .Site.RegularPages "Type" "!=" "posts" | uniq }}
+            
+            <!-- 显示日期在2026-01-01之后的活动 -->
+            {{ $afterMeishajian := where $allRaces "Date" "ge" (time "2026-01-01") }}
+            {{ if $afterMeishajian }}
+                {{ range sort $afterMeishajian "Date" "desc" }}
+                <div class="race-card" data-type="{{ if eq .Params.type "Marathon" }}marathon{{ else if eq .Params.type "Half Marathon" }}halfmarathon{{ else if or (eq .Params.type "Trail Running") (eq .Params.type "Trail Race") (eq .Params.type "Trail") }}trail{{ else if eq .Params.type "Hiking" }}hiking{{ else if eq .Params.type "Stair Climbing" }}stairs{{ else }}other{{ end }}">
+                    <div class="race-card-content">
+                        <div class="race-header">
+                            <div>
+                                <div class="race-title">{{ .Date.Format "2006" }} {{ .Title }}</div>
+                                <div class="race-date">{{ .Date.Format "2006年1月2日" }}</div>
+                            </div>
+                            <div>
+                                {{ if eq .Params.status "DNF" }}
+                                <div class="status-badge status-dnf">DNF</div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        <div class="race-feeling">
+                            {{ with .Content }}
+                            <div class="race-feeling-content">{{ . | plainify | truncate 80 }}</div>
+                            {{ end }}
+                        </div>
+                        <div class="race-info">
+                            {{ if ne .Params.type "Stair Climbing" }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Distance</div>
+                                <div class="race-info-value">{{ .Params.distance }}</div>
+                            </div>
+                            {{ end }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Location</div>
+                                <div class="race-info-value">{{ .Params.location }}</div>
+                            </div>
+                            {{ if eq .Params.status "DNF" }}
+                            {{ with .Params.dnf_location }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">DNF Location</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ if or (eq .Params.type "Marathon") (eq .Params.type "Half Marathon") }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.pace }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Pace</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ else if or (eq .Params.type "Trail Running") (eq .Params.type "Trail Race") (eq .Params.type "Trail") (eq .Params.type "Hiking") }}
+                            {{ with .Params.elevation }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Elevation Gain</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ else }}
+                            {{ with .Params.climb }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Elevation Gain</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ else if eq .Params.type "Stair Climbing" }}
+                            {{ with .Params.elevation }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Height</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.floors }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Floors</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ with .Params.difficulty }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Difficulty</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.suitable_age }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Suitable Age</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.trail_features }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Features</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.best_season }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Best Season</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                        </div>
+                    </div>
+                    <div class="completed-time">
+                        <div class="completed-time-value" data-date="{{ .Date.Format "2006-01-02" }}"></div>
+                    </div>
+                </div>
+                {{ end }}
+            {{ end }}
+            
+
+            
+
+            
+            <!-- 显示2025年的活动（按日期降序排序） -->
+            {{ $year2025 := where $allRaces "Date" "ge" (time "2025-01-01") }}
+            {{ $year2025 := where $year2025 "Date" "lt" (time "2026-01-01") }}
+            {{ if $year2025 }}
+                {{ range sort $year2025 "Date" "desc" }}
+                <div class="race-card" data-type="{{ if eq .Params.type "Marathon" }}marathon{{ else if eq .Params.type "Half Marathon" }}halfmarathon{{ else if or (eq .Params.type "Trail Running") (eq .Params.type "Trail Race") (eq .Params.type "Trail") }}trail{{ else if eq .Params.type "Hiking" }}hiking{{ else if eq .Params.type "Stair Climbing" }}stairs{{ else }}other{{ end }}">
+                    <div class="race-card-content">
+                        <div class="race-header">
+                            <div>
+                                <div class="race-title">{{ .Date.Format "2006" }} {{ .Title }}</div>
+                                <div class="race-date">{{ .Date.Format "2006年1月2日" }}</div>
+                            </div>
+                            <div>
+                                {{ if eq .Params.status "DNF" }}
+                                <div class="status-badge status-dnf">DNF</div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        <div class="race-feeling">
+                            {{ with .Content }}
+                            <div class="race-feeling-content">{{ . | plainify | truncate 100 }}</div>
+                            {{ end }}
+                        </div>
+                        <div class="race-info">
+                            {{ if ne .Params.type "Stair Climbing" }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Distance</div>
+                                <div class="race-info-value">{{ .Params.distance }}</div>
+                            </div>
+                            {{ end }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Location</div>
+                                <div class="race-info-value">{{ .Params.location }}</div>
+                            </div>
+                            {{ if eq .Params.status "DNF" }}
+                            {{ with .Params.dnf_location }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">DNF Location</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ if or (eq .Params.type "Marathon") (eq .Params.type "Half Marathon") }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ with .Params.time }}{{ . }}{{ else }}N/A{{ end }}</div>
+                            </div>
+                            {{ with .Params.pace }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Pace</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ else if or (eq .Params.type "Trail Running") (eq .Params.type "Trail Race") (eq .Params.type "Trail") (eq .Params.type "Hiking") }}
+                            {{ with .Params.elevation }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Elevation Gain</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ else }}
+                            {{ with .Params.climb }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Elevation Gain</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.difficulty }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Difficulty</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.suitable_age }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Suitable Age</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.trail_features }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Features</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.best_season }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Best Season</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ else if eq .Params.type "Stair Climbing" }}
+                            {{ with .Params.elevation }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Height</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.floors }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Floors</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                    <div class="completed-time">
+                        <div class="completed-time-value" data-date="{{ .Date.Format "2006-01-02" }}"></div>
+                    </div>
+                </div>
+                {{ end }}
+            {{ end }}
+            
+
+            
+
+            
+
+            
+            <!-- 显示2024年的已结束活动（按日期降序排序） -->
+            {{ $year2024 := where $allRaces "Date" "ge" (time "2024-01-01") }}
+            {{ $year2024 := where $year2024 "Date" "lt" (time "2025-01-01") }}
+            {{ if $year2024 }}
+                {{ range sort $year2024 "Date" "desc" }}
+                <div class="race-card" data-type="{{ if eq .Params.type "Marathon" }}marathon{{ else if eq .Params.type "Half Marathon" }}halfmarathon{{ else if or (eq .Params.type "Trail Running") (eq .Params.type "Trail Race") (eq .Params.type "Trail") }}trail{{ else if eq .Params.type "Hiking" }}hiking{{ else if eq .Params.type "Stair Climbing" }}stairs{{ else }}other{{ end }}">
+                    <div class="race-card-content">
+                        <div class="race-header">
+                            <div>
+                                <div class="race-title">{{ .Date.Format "2006" }} {{ .Title }}</div>
+                                <div class="race-date">{{ .Date.Format "2006年1月2日" }}</div>
+                            </div>
+                            <div>
+                                {{ if eq .Params.status "DNF" }}
+                                <div class="status-badge status-dnf">DNF</div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        <div class="race-feeling">
+                            {{ with .Content }}
+                            <div class="race-feeling-content">{{ . | plainify | truncate 100 }}</div>
+                            {{ end }}
+                        </div>
+                        <div class="race-info">
+                            {{ if ne .Params.type "Stair Climbing" }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Distance</div>
+                                <div class="race-info-value">{{ .Params.distance }}</div>
+                            </div>
+                            {{ end }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Location</div>
+                                <div class="race-info-value">{{ .Params.location }}</div>
+                            </div>
+                            {{ if eq .Params.status "DNF" }}
+                            {{ with .Params.dnf_location }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">DNF Location</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ if or (eq .Params.type "Marathon") (eq .Params.type "Half Marathon") }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ with .Params.time }}{{ . }}{{ else }}N/A{{ end }}</div>
+                            </div>
+                            {{ with .Params.pace }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Pace</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ else if or (eq .Params.type "Trail Running") (eq .Params.type "Trail Race") (eq .Params.type "Trail") (eq .Params.type "Hiking") }}
+                            {{ with .Params.elevation }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Elevation Gain</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ else }}
+                            {{ with .Params.climb }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Elevation Gain</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.difficulty }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Difficulty</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.suitable_age }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Suitable Age</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.trail_features }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Features</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.best_season }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Best Season</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ else if eq .Params.type "Stair Climbing" }}
+                            {{ with .Params.elevation }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Height</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.floors }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Floors</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                    <div class="completed-time">
+                        <div class="completed-time-value" data-date="{{ .Date.Format "2006-01-02" }}"></div>
+                    </div>
+                </div>
+                {{ end }}
+            {{ end }}
+
+            
+            <!-- 显示2023年及之前的活动（按日期降序排序） -->
+            {{ $yearBefore2024 := where $allRaces "Date" "lt" (time "2024-01-01") }}
+            {{ if $yearBefore2024 }}
+                {{ range sort $yearBefore2024 "Date" "desc" }}
+                <div class="race-card" data-type="{{ if eq .Params.type "Marathon" }}marathon{{ else if eq .Params.type "Half Marathon" }}halfmarathon{{ else if or (eq .Params.type "Trail Running") (eq .Params.type "Trail Race") (eq .Params.type "Trail") }}trail{{ else if eq .Params.type "Hiking" }}hiking{{ else if eq .Params.type "Stair Climbing" }}stairs{{ else }}other{{ end }}">
+                    <div class="race-card-content">
+                        <div class="race-header">
+                            <div>
+                                <div class="race-title">{{ .Date.Format "2006" }} {{ .Title }}</div>
+                                <div class="race-date">{{ .Date.Format "2006年1月2日" }}</div>
+                            </div>
+                            <div>
+                                {{ if eq .Params.status "DNF" }}
+                                <div class="status-badge status-dnf">DNF</div>
+                                {{ end }}
+                            </div>
+                        </div>
+                        <div class="race-feeling">
+                            {{ with .Content }}
+                            <div class="race-feeling-content">{{ . | plainify | truncate 100 }}</div>
+                            {{ end }}
+                        </div>
+                        <div class="race-info">
+                            {{ if ne .Params.type "Stair Climbing" }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Distance</div>
+                                <div class="race-info-value">{{ .Params.distance }}</div>
+                            </div>
+                            {{ end }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Location</div>
+                                <div class="race-info-value">{{ .Params.location }}</div>
+                            </div>
+                            {{ if eq .Params.status "DNF" }}
+                            {{ with .Params.dnf_location }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">DNF Location</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ if or (eq .Params.type "Marathon") (eq .Params.type "Half Marathon") }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ with .Params.time }}{{ . }}{{ else }}N/A{{ end }}</div>
+                            </div>
+                            {{ with .Params.pace }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Pace</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ else if or (eq .Params.type "Trail Running") (eq .Params.type "Trail Race") (eq .Params.type "Trail") (eq .Params.type "Hiking") }}
+                            {{ with .Params.elevation }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Elevation Gain</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ else }}
+                            {{ with .Params.climb }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Elevation Gain</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.difficulty }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Difficulty</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.suitable_age }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Suitable Age</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.trail_features }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Features</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.best_season }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Best Season</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ else if eq .Params.type "Stair Climbing" }}
+                            {{ with .Params.elevation }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Height</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.floors }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Floors</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ with .Params.time }}
+                            <div class="race-info-item">
+                                <div class="race-info-label">Finish Time</div>
+                                <div class="race-info-value">{{ . }}</div>
+                            </div>
+                            {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+                    <div class="completed-time">
+                        <div class="completed-time-value" data-date="{{ .Date.Format "2006-01-02" }}"></div>
+                    </div>
+                </div>
+                {{ end }}
+            {{ end }}
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2026 Race Log. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        // 比赛日期和时间（都是当天7:30）
+        const races = [
+            {
+                id: 'wuxi',
+                date: new Date('2026-03-22T07:30:00')
+            },
+            {
+                id: 'huaian',
+                date: new Date('2026-04-12T07:30:00')
+            },
+            {
+                id: 'yangchun',
+                date: new Date('2026-04-26T07:30:00')
+            }
+        ];
+        
+        // 更新倒计时
+        function updateCountdowns() {
+            const now = new Date();
+            
+            races.forEach(race => {
+                const distance = race.date - now;
+                
+                if (distance <= 0) {
+                    // 比赛已开始
+                    document.getElementById(race.id + '-countdown').textContent = '比赛已开始！';
+                    return;
+                }
+                
+                // 计算天、时、分、秒
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // 格式化显示（英文）
+                const formattedTime = `${days} days ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                document.getElementById(race.id + '-countdown').textContent = formattedTime;
+            });
+        }
+        
+        // 立即更新一次
+        updateCountdowns();
+        
+        // 每秒更新一次
+        setInterval(updateCountdowns, 1000);
+        
+        // 筛选功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const typeFilterBtns = document.querySelectorAll('[data-filter]');
+            const yearFilterBtns = document.querySelectorAll('[data-year]');
+            const raceCards = document.querySelectorAll('.race-card');
+            
+            // 当前筛选状态
+            let currentType = 'all';
+            let currentYear = 'all';
+            
+            // 类型筛选按钮点击事件
+            typeFilterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 移除所有类型按钮的active类
+                    typeFilterBtns.forEach(b => b.classList.remove('active'));
+                    // 添加当前按钮的active类
+                    this.classList.add('active');
+                    
+                    currentType = this.getAttribute('data-filter');
+                    applyFilters();
+                });
+            });
+            
+            // 年份筛选按钮点击事件
+            yearFilterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 移除所有年份按钮的active类
+                    yearFilterBtns.forEach(b => b.classList.remove('active'));
+                    // 添加当前按钮的active类
+                    this.classList.add('active');
+                    
+                    currentYear = this.getAttribute('data-year');
+                    applyFilters();
+                });
+            });
+            
+            // 应用筛选
+            function applyFilters() {
+                raceCards.forEach(card => {
+                    const typeMatch = currentType === 'all' || card.getAttribute('data-type') === currentType;
+                    
+                    let yearMatch = true;
+                    if (currentYear !== 'all') {
+                        const dateElement = card.querySelector('.race-date');
+                        if (dateElement) {
+                            const dateText = dateElement.textContent;
+                            const cardYear = dateText.match(/\d{4}/);
+                            yearMatch = cardYear && cardYear[0] === currentYear;
+                        } else {
+                            yearMatch = false;
+                        }
+                    }
+                    
+                    if (typeMatch && yearMatch) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // 更新统计数据
+                updateStats();
+            }
+            
+            // 更新统计数据
+            function updateStats() {
+                // 获取当前显示的卡片
+                const visibleCards = Array.from(raceCards).filter(card => {
+                    return card.style.display !== 'none';
+                });
+                
+                // 初始化统计数据
+                let stats = {
+                    total: visibleCards.length,
+                    marathon: 0,
+                    halfmarathon: 0,
+                    trail: 0,
+                    hiking: 0,
+                    elevation: 0,
+                    '100km': 0,
+                    dnf: 0,
+                    'best-marathon': 'N/A',
+                    'best-halfmarathon': 'N/A'
+                };
+                
+                // 初始化最好成绩
+                let bestMarathonTime = null;
+                let bestHalfMarathonTime = null;
+                
+                // 计算统计数据
+                visibleCards.forEach(card => {
+                    const type = card.getAttribute('data-type');
+                    
+                    // 类型统计
+                    if (type === 'marathon') stats.marathon++;
+                    if (type === 'halfmarathon') stats.halfmarathon++;
+                    if (type === 'trail') stats.trail++;
+                    if (type === 'hiking') stats.hiking++;
+                    
+                    // DNF统计
+                    const dnfBadge = card.querySelector('.status-badge.status-dnf');
+                    if (dnfBadge) {
+                        stats.dnf++;
+                    }
+                    
+                    // 海拔统计
+                    const infoItems = card.querySelectorAll('.race-info-item');
+                    infoItems.forEach(item => {
+                        const label = item.querySelector('.race-info-label');
+                        const value = item.querySelector('.race-info-value');
+                        if (label && value) {
+                            const labelText = label.textContent;
+                            if (labelText === 'Elevation Gain' || labelText === 'Elevation') {
+                                const elevationText = value.textContent;
+                                const elevationMatch = elevationText.match(/\d+/);
+                                if (elevationMatch) {
+                                    stats.elevation += parseInt(elevationMatch[0]);
+                                }
+                            }
+                            
+                            // 距离统计（用于100km+事件）
+                            if (labelText === 'Distance') {
+                                const distanceText = value.textContent;
+                                const distanceMatch = distanceText.match(/\d+\.?\d*/);
+                                if (distanceMatch) {
+                                    const distance = parseFloat(distanceMatch[0]);
+                                    if (distance >= 100) {
+                                        stats['100km']++;
+                                    }
+                                }
+                            }
+                            
+                            // 最好成绩统计
+                            if (labelText === 'Finish Time' || labelText === 'Finish') {
+                                const timeText = value.textContent;
+                                if (type === 'marathon' && timeText !== 'N/A') {
+                                    const timeParts = timeText.split(':');
+                                    if (timeParts.length === 3) {
+                                        const totalSeconds = parseInt(timeParts[0]) * 3600 + parseInt(timeParts[1]) * 60 + parseInt(timeParts[2]);
+                                        if (!bestMarathonTime || totalSeconds < bestMarathonTime) {
+                                            bestMarathonTime = totalSeconds;
+                                            stats['best-marathon'] = timeText;
+                                        }
+                                    }
+                                }
+                                if (type === 'halfmarathon' && timeText !== 'N/A') {
+                                    const timeParts = timeText.split(':');
+                                    if (timeParts.length === 3) {
+                                        const totalSeconds = parseInt(timeParts[0]) * 3600 + parseInt(timeParts[1]) * 60 + parseInt(timeParts[2]);
+                                        if (!bestHalfMarathonTime || totalSeconds < bestHalfMarathonTime) {
+                                            bestHalfMarathonTime = totalSeconds;
+                                            stats['best-halfmarathon'] = timeText;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    });
+                });
+                
+                // 更新统计显示
+                Object.keys(stats).forEach(statKey => {
+                    const statElement = document.querySelector(`[data-stat="${statKey}"] .stat-value`);
+                    if (statElement) {
+                        if (statKey === 'elevation') {
+                            statElement.textContent = stats[statKey] + '+';
+                        } else {
+                            statElement.textContent = stats[statKey];
+                        }
+                    }
+                });
+            }
+            
+            // 计算已结束时间
+            function updateCompletedTimes() {
+                const now = new Date();
+                const completedElements = document.querySelectorAll('.completed-time-value');
+                
+                completedElements.forEach(element => {
+                    const dateStr = element.getAttribute('data-date');
+                    if (dateStr) {
+                        const raceDate = new Date(dateStr + 'T00:00:00');
+                        const timeDiff = now - raceDate;
+                        
+                        // 计算天数
+                        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                        
+                        // 格式化显示（英文）
+                        const formattedTime = `${days} days ago`;
+                        element.textContent = formattedTime;
+                    }
+                });
+            }
+            
+            // 计算总海拔爬升
+            function calculateTotalElevation() {
+                let totalElevation = 0;
+                const raceCards = document.querySelectorAll('.race-card');
+                
+                // 从所有卡片中提取海拔数据
+                raceCards.forEach(card => {
+                    const infoItems = card.querySelectorAll('.race-info-item');
+                    infoItems.forEach(item => {
+                        const label = item.querySelector('.race-info-label');
+                        const value = item.querySelector('.race-info-value');
+                        if (label && value) {
+                            const labelText = label.textContent;
+                            if (labelText === 'Elevation Gain' || labelText === 'Elevation') {
+                                const elevationText = value.textContent;
+                                const elevationMatch = elevationText.match(/\d+/);
+                                if (elevationMatch) {
+                                    totalElevation += parseInt(elevationMatch[0]);
+                                }
+                            }
+                        }
+                    });
+                });
+                
+                // 更新总海拔爬升显示
+                const statLabels = document.querySelectorAll('.stat-label');
+                statLabels.forEach(label => {
+                    if (label.textContent === 'Elevation Gain') {
+                        const elevationValue = label.previousElementSibling;
+                        if (elevationValue) {
+                            elevationValue.textContent = totalElevation + '+';
+                        }
+                    }
+                });
+            }
+            
+            // 初始化统计数据
+            function initializeStats() {
+                updateStats();
+                console.log('已初始化统计数据');
+            }
+            
+            // 执行计算
+            calculateTotalElevation();
+            initializeStats();
+            
+            // 确保DOM完全加载后再计算已结束时间
+            setTimeout(function() {
+                updateCompletedTimes();
+                console.log('已更新已结束时间');
+            }, 100);
+            
+            // 每天更新已结束时间（24小时）
+            setInterval(updateCompletedTimes, 24 * 60 * 60 * 1000);
+        });
+    </script>
+</body>
+</html>

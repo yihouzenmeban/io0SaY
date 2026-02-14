@@ -1,0 +1,26 @@
+[[main]]
+none = "none"
+
+[[main]]
+name = "Work"
+pre = "code"
+url = "/work/"
+identifier = "VaYIUAQowd"
+weight = 9999
+
+[[main]]
+name = "Sports"
+pre = "heart"
+url = "/sports/"
+identifier = "qPYLstBD77"
+weight = 20
+
+[[main]]
+name = "Race Log"
+pre = "fire"
+url = "/racelog/"
+identifier = "racelog"
+weight = 30
+
+[[footer]]
+none = "none"
