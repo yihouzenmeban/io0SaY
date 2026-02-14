@@ -3,6 +3,8 @@
 <head>
 	<meta name="generator" content="Hugo 0.155.3">
     <title>io0SaY 的运动足迹</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <style>
         * {
             margin: 0;
@@ -1160,6 +1162,80 @@
                 padding: var(--spacing-md);
             }
         }
+        
+         
+        .map-section {
+            margin-bottom: var(--spacing-2xl);
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #10b981, #f59e0b);
+        }
+        
+        .map-section h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-xl);
+            color: #1e3a8a;
+            position: relative;
+            padding-bottom: var(--spacing-md);
+            letter-spacing: -0.025em;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+        
+        .map-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            border-radius: 9999px;
+        }
+        
+        #map {
+            height: 600px;
+            width: 100%;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            z-index: 1;
+        }
+        
+         
+        @media (max-width: 768px) {
+            #map {
+                height: 400px;
+            }
+            
+            .map-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #map {
+                height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1261,6 +1337,12 @@
                     <div class="stat-label">DNF</div>
                 </div>
             </div>
+        </div>
+        
+        
+        <div class="map-section">
+            <h2>运动足迹地图</h2>
+            <div id="map"></div>
         </div>
         
         
@@ -7097,6 +7179,63 @@
         
         
         setInterval(updateCountdowns, 1000);
+        
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const map = L.map('map').setView([35.86166, 104.195397], 5); 
+            
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            
+            const raceLocations = [
+                { name: '香港马拉松', location: '中国 香港', lat: 22.319304, lng: 114.169361, type: 'Marathon', year: 2025 },
+                { name: '崇礼100', location: '中国 河北 崇礼', lat: 40.986773, lng: 115.275139, type: 'Trail Running', year: 2025 },
+                { name: '无锡马拉松', location: '中国 江苏 无锡', lat: 31.230416, lng: 120.176961, type: 'Marathon', year: 2026 },
+                { name: '淮安马拉松', location: '中国 江苏 淮安', lat: 33.590341, lng: 119.187217, type: 'Marathon', year: 2026 },
+                { name: '阳春鸡笼顶越野赛', location: '中国 广东 阳春', lat: 22.166122, lng: 111.773321, type: 'Trail', year: 2026 },
+                { name: 'HK100', location: '中国 香港', lat: 22.319304, lng: 114.169361, type: 'Trail', year: 2026 },
+                { name: '深圳马拉松', location: '中国 广东 深圳', lat: 22.543099, lng: 114.057868, type: 'Marathon', year: 2025 },
+                { name: '广州马拉松', location: '中国 广东 广州', lat: 23.129111, lng: 113.264385, type: 'Marathon', year: 2025 },
+                { name: '兰州马拉松', location: '中国 甘肃 兰州', lat: 36.061099, lng: 103.834347, type: 'Marathon', year: 2018 },
+                { name: '北京马拉松', location: '中国 北京', lat: 39.904200, lng: 116.407396, type: 'Marathon', year: 2017 }
+            ];
+            
+            
+            raceLocations.forEach(race => {
+                
+                let markerColor = 'blue'; 
+                if (race.type === 'Marathon') markerColor = 'red';
+                else if (race.type === 'Half Marathon') markerColor = 'green';
+                else if (race.type === 'Trail' || race.type === 'Trail Running') markerColor = 'orange';
+                else if (race.type === 'Hiking') markerColor = 'purple';
+                else if (race.type === 'Stair Climbing') markerColor = 'yellow';
+                
+                
+                const customIcon = L.divIcon({
+                    className: 'custom-marker',
+                    html: `<div style="width: 16px; height: 16px; border-radius: 50%; background-color: ${markerColor}; border: 2px solid white; box-shadow: 0 0 4px rgba(0,0,0,0.5);"></div>`,
+                    iconSize: [16, 16],
+                    iconAnchor: [8, 8]
+                });
+                
+                
+                const marker = L.marker([race.lat, race.lng], { icon: customIcon }).addTo(map);
+                
+                
+                marker.bindPopup(`
+                    <div style="font-family: 'SF Pro Display', 'Inter', sans-serif;">
+                        <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #1e3a8a;">${race.year} ${race.name}</h3>
+                        <p style="margin: 0 0 4px 0; font-size: 14px; color: #4b5563;"><strong>地点:</strong> ${race.location}</p>
+                        <p style="margin: 0 0 4px 0; font-size: 14px; color: #4b5563;"><strong>类型:</strong> ${race.type}</p>
+                        <p style="margin: 0; font-size: 14px; color: #4b5563;"><strong>年份:</strong> ${race.year}</p>
+                    </div>
+                `);
+            });
+        });
         
         
         document.addEventListener('DOMContentLoaded', function() {
