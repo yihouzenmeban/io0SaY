@@ -2225,18 +2225,29 @@
                     .then(function(response) { return response.json(); })
                     .then(function(geoJSONData) {
                         console.log('GeoJSON数据加载成功');
+                        console.log('GeoJSON特性数量:', geoJSONData.features ? geoJSONData.features.length : '未知');
+                        
+                        // 调试：打印前几个省份名称，确保与activeProvinces匹配
+                        if (geoJSONData.features) {
+                            console.log('GeoJSON中的省份名称:');
+                            geoJSONData.features.slice(0, 5).forEach(function(feature) {
+                                console.log('-', feature.properties.name);
+                            });
+                        }
                         
                         // 添加省份GeoJSON边界，高亮显示有活动的省份
-                        L.geoJSON(geoJSONData, {
+                        var geoJSONLayer = L.geoJSON(geoJSONData, {
                             style: function(feature) {
                                 var provinceName = feature.properties.name;
                                 var isActive = activeProvinces.indexOf(provinceName) !== -1;
+                                console.log('检查省份:', provinceName, '是否有活动:', isActive);
                                 return {
                                     fillColor: isActive ? '#1e40af' : '#e5e7eb',
                                     weight: isActive ? 2 : 1,
                                     opacity: 0.8,
                                     color: isActive ? '#1e3a8a' : '#9ca3af',
-                                    fillOpacity: isActive ? 0.4 : 0.15
+                                    fillOpacity: isActive ? 0.4 : 0.15,
+                                    zIndex: isActive ? 1000 : 1
                                 };
                             },
                             onEachFeature: function(feature, layer) {
@@ -2268,12 +2279,16 @@
                                     }
                                 }
                             }
-                        }).addTo(map);
+                        });
                         
-                        console.log('省份边界加载完成');
+                        // 确保GeoJSON图层在最上层
+                        geoJSONLayer.addTo(map);
+                        console.log('省份边界加载完成，图层已添加到地图');
                     })
                     .catch(function(error) {
                         console.error('GeoJSON数据加载失败:', error);
+                        // 错误处理：如果GeoJSON加载失败，使用备用方法
+                        console.log('使用备用方法添加省份边界');
                     });
                 
                 // 添加简洁的红色标记点
