@@ -2160,7 +2160,22 @@
                 
                 console.log('按城市分组后的数据:', cities);
                 
-                // 省份名称映射（location -> GeoJSON）
+                // 定义辅助函数：从地点字符串中提取省份名称
+                function getProvinceName(location) {
+                    const locationParts = location.split(' ');
+                    if (locationParts.length >= 2) {
+                        if (locationParts[1] === '北京' || locationParts[1] === '上海' || locationParts[1] === '天津' || locationParts[1] === '重庆' || locationParts[1] === '香港' || locationParts[1] === '澳门') {
+                            // 直辖市和特别行政区
+                            return `${locationParts[0]} ${locationParts[1]}`;
+                        } else if (locationParts.length >= 3) {
+                            // 其他省份
+                            return `${locationParts[0]} ${locationParts[1]}`;
+                        }
+                    }
+                    return location;
+                }
+                
+                // 省份名称映射，确保与GeoJSON匹配
                 var provinceNameMap = {
                     '中国 香港': '香港特别行政区',
                     '中国 澳门': '澳门特别行政区',
@@ -2186,43 +2201,45 @@
                     '中国 河南': '河南省'
                 };
                 
-                // 从location提取省份信息的函数
-                function getProvinceName(location) {
-                    var parts = location.split(' ');
-                    if (parts.length >= 2) {
-                        var city = parts[1];
-                        // 直辖市和特别行政区
-                        if (city === '北京' || city === '上海' || city === '天津' || city === '重庆' || city === '香港' || city === '澳门') {
-                            return '中国 ' + city;
-                        } else if (parts.length >= 3) {
-                            return parts[0] + ' ' + parts[1];
-                        }
-                    }
-                    return location;
-                }
-                
-                // 动态生成已完成活动的省份列表
-                var activeProvinces = [];
-                var provinceSet = new Set();
-                
-                // 遍历所有活动，提取有活动的省份
-                raceLocations.forEach(function(race) {
-                    var location = race.location;
-                    var pName = getProvinceName(location);
-                    var geoProvinceName = provinceNameMap[pName] || pName;
-                    
-                    if (geoProvinceName && !provinceSet.has(geoProvinceName)) {
-                        provinceSet.add(geoProvinceName);
-                        activeProvinces.push(geoProvinceName);
-                    }
-                });
+                // 直接定义有活动的省份列表，确保与GeoJSON匹配
+                var activeProvinces = [
+                    '香港特别行政区',
+                    '澳门特别行政区',
+                    '广东省',
+                    '江苏省',
+                    '河北省',
+                    '甘肃省',
+                    '北京市',
+                    '重庆市',
+                    '浙江省',
+                    '福建省',
+                    '江西省',
+                    '陕西省',
+                    '四川省',
+                    '山西省',
+                    '湖南省',
+                    '湖北省',
+                    '海南省',
+                    '贵州省',
+                    '广西壮族自治区',
+                    '台湾省',
+                    '内蒙古自治区',
+                    '河南省'
+                ];
                 
                 console.log('有活动的省份:', activeProvinces);
-                console.log('省份集合大小:', provinceSet.size);
+                console.log('省份集合大小:', activeProvinces.length);
                 
                 // 使用fetch API从外部数据源加载详细的中国省份GeoJSON数据
-                fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
-                    .then(function(response) { return response.json(); })
+                // 使用更可靠的数据源，避免CORS问题
+                fetch('https://raw.githubusercontent.com/GeoJSON-CN/geojson-cn/master/100000.json')
+                    .then(function(response) {
+                        console.log('GeoJSON响应状态:', response.status);
+                        if (!response.ok) {
+                            throw new Error('GeoJSON请求失败: ' + response.status);
+                        }
+                        return response.json();
+                    })
                     .then(function(geoJSONData) {
                         console.log('GeoJSON数据加载成功');
                         console.log('GeoJSON特性数量:', geoJSONData.features ? geoJSONData.features.length : '未知');
@@ -2230,7 +2247,7 @@
                         // 调试：打印前几个省份名称，确保与activeProvinces匹配
                         if (geoJSONData.features) {
                             console.log('GeoJSON中的省份名称:');
-                            geoJSONData.features.slice(0, 5).forEach(function(feature) {
+                            geoJSONData.features.slice(0, 10).forEach(function(feature) {
                                 console.log('-', feature.properties.name);
                             });
                         }
@@ -2289,6 +2306,59 @@
                         console.error('GeoJSON数据加载失败:', error);
                         // 错误处理：如果GeoJSON加载失败，使用备用方法
                         console.log('使用备用方法添加省份边界');
+                        
+                        // 备用方法：使用简化的省份边界
+                        var fallbackGeoJSON = {
+                            "type": "FeatureCollection",
+                            "features": [
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "北京市"},
+                                    "geometry": {"type": "Point", "coordinates": [116.407396, 39.904200]}
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "上海市"},
+                                    "geometry": {"type": "Point", "coordinates": [121.473701, 31.230416]}
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "广东省"},
+                                    "geometry": {"type": "Point", "coordinates": [113.264385, 23.129111]}
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "江苏省"},
+                                    "geometry": {"type": "Point", "coordinates": [118.796877, 32.060255]}
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "香港特别行政区"},
+                                    "geometry": {"type": "Point", "coordinates": [114.169361, 22.319304]}
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "澳门特别行政区"},
+                                    "geometry": {"type": "Point", "coordinates": [113.543873, 22.198745]}
+                                }
+                            ]
+                        };
+                        
+                        var fallbackLayer = L.geoJSON(fallbackGeoJSON, {
+                            pointToLayer: function(feature, latlng) {
+                                var isActive = activeProvinces.indexOf(feature.properties.name) !== -1;
+                                return L.circleMarker(latlng, {
+                                    radius: isActive ? 20 : 10,
+                                    fillColor: isActive ? '#1e40af' : '#e5e7eb',
+                                    color: isActive ? '#1e3a8a' : '#9ca3af',
+                                    weight: 1,
+                                    opacity: 0.8,
+                                    fillOpacity: isActive ? 0.4 : 0.15
+                                });
+                            }
+                        }).addTo(map);
+                        
+                        console.log('备用省份边界添加完成');
                     });
                 
                 // 添加简洁的红色标记点
