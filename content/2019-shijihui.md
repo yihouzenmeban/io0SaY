@@ -4,7 +4,7 @@ date: 2019-10-19
 draft: false
 type: Stair Climbing
 status: Completed
-location: 中国 深圳
+location: 中国 广东 深圳
 time: 00:10:52
 floors: 45
 ---

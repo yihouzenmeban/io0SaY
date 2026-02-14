@@ -5,7 +5,7 @@ draft: false
 type: Trail Running
 status: Completed
 distance: 41km
-location: 中国 深圳
+location: 中国 广东 深圳
 time: 07:45:51
 elevation: 2807m
 ---
