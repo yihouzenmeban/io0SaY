@@ -2201,14 +2201,24 @@
                     return location;
                 }
                 
-                // 已完成活动的省份列表（从content目录提取）
-                var activeProvinces = [
-                    '香港特别行政区', '广东省', '河北省', '江苏省', '甘肃省', 
-                    '北京市', '重庆市', '浙江省', '福建省', '江西省', '陕西省', 
-                    '四川省', '山西省', '湖南省', '湖北省', '海南省', '贵州省',
-                    '广西壮族自治区', '台湾省', '内蒙古自治区', '河南省'
-                ];
+                // 动态生成已完成活动的省份列表
+                var activeProvinces = [];
+                var provinceSet = new Set();
+                
+                // 遍历所有活动，提取有活动的省份
+                raceLocations.forEach(function(race) {
+                    var location = race.location;
+                    var pName = getProvinceName(location);
+                    var geoProvinceName = provinceNameMap[pName] || pName;
+                    
+                    if (geoProvinceName && !provinceSet.has(geoProvinceName)) {
+                        provinceSet.add(geoProvinceName);
+                        activeProvinces.push(geoProvinceName);
+                    }
+                });
+                
                 console.log('有活动的省份:', activeProvinces);
+                console.log('省份集合大小:', provinceSet.size);
                 
                 // 使用fetch API从外部数据源加载详细的中国省份GeoJSON数据
                 fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
