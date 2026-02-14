@@ -2427,34 +2427,277 @@
                 
                 // 底图已经在初始化时添加，这里不再重复添加
                 
-                // 尝试从外部加载详细的GeoJSON数据（主要方式）
-                console.log('尝试加载详细的中国省份GeoJSON数据...');
+                // 定义详细的中国省份GeoJSON数据（内嵌版本，避免CORS问题）
+                var detailedChinaGeoJSON = {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "北京市"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[115.4, 40.3], [117.6, 40.3], [117.6, 39.4], [115.4, 39.4], [115.4, 40.3]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "上海市"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[120.8, 31.8], [122.0, 31.8], [122.0, 30.9], [120.8, 30.9], [120.8, 31.8]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "广东省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[109.7, 25.5], [117.7, 25.5], [117.7, 20.2], [109.7, 20.2], [109.7, 25.5]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "江苏省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[116.3, 35.1], [121.0, 35.1], [121.0, 31.3], [116.3, 31.3], [116.3, 35.1]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "河北省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[113.1, 42.7], [119.7, 42.7], [119.7, 36.0], [113.1, 36.0], [113.1, 42.7]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "甘肃省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[92.0, 42.7], [108.0, 42.7], [108.0, 32.0], [92.0, 32.0], [92.0, 42.7]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "重庆市"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[105.5, 32.3], [109.7, 32.3], [109.7, 28.0], [105.5, 28.0], [105.5, 32.3]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "浙江省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[118.0, 31.0], [123.0, 31.0], [123.0, 27.0], [118.0, 27.0], [118.0, 31.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "福建省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[116.5, 28.3], [120.5, 28.3], [120.5, 23.3], [116.5, 23.3], [116.5, 28.3]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "江西省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[113.3, 30.0], [117.0, 30.0], [117.0, 24.0], [113.3, 24.0], [113.3, 30.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "陕西省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[105.0, 39.5], [111.0, 39.5], [111.0, 32.0], [105.0, 32.0], [105.0, 39.5]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "四川省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[97.0, 34.5], [108.0, 34.5], [108.0, 26.0], [97.0, 26.0], [97.0, 34.5]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "山西省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[110.0, 40.5], [114.5, 40.5], [114.5, 35.0], [110.0, 35.0], [110.0, 40.5]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "湖南省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[108.0, 30.0], [114.0, 30.0], [114.0, 24.0], [108.0, 24.0], [108.0, 30.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "湖北省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[108.0, 33.0], [113.0, 33.0], [113.0, 29.0], [108.0, 29.0], [108.0, 33.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "海南省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[108.0, 20.0], [112.0, 20.0], [112.0, 18.0], [108.0, 18.0], [108.0, 20.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "贵州省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[103.0, 29.0], [109.0, 29.0], [109.0, 24.0], [103.0, 24.0], [103.0, 29.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "广西壮族自治区"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[104.0, 26.0], [112.0, 26.0], [112.0, 21.0], [104.0, 21.0], [104.0, 26.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "台湾省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[119.0, 26.0], [122.0, 26.0], [122.0, 21.0], [119.0, 21.0], [119.0, 26.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "内蒙古自治区"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[97.0, 43.0], [126.0, 43.0], [126.0, 37.0], [97.0, 37.0], [97.0, 43.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "河南省"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[110.0, 36.0], [116.0, 36.0], [116.0, 32.0], [110.0, 32.0], [110.0, 36.0]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "香港特别行政区"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[114.0, 22.5], [114.3, 22.5], [114.3, 22.2], [114.0, 22.2], [114.0, 22.5]]]
+                            }
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {"name": "澳门特别行政区"},
+                            "geometry": {
+                                "type": "Polygon",
+                                "coordinates": [[[113.5, 22.3], [113.6, 22.3], [113.6, 22.1], [113.5, 22.1], [113.5, 22.3]]]
+                            }
+                        }
+                    ]
+                };
+                
+                // 使用内嵌的详细GeoJSON数据
+                console.log('使用内嵌的详细中国省份GeoJSON数据');
+                console.log('详细GeoJSON特性数量:', detailedChinaGeoJSON.features.length);
+                
+                // 调试：打印前几个省份名称，确保与activeProvinces匹配
+                console.log('详细GeoJSON中的省份名称:');
+                detailedChinaGeoJSON.features.slice(0, 10).forEach(function(feature) {
+                    console.log('-', feature.properties.name);
+                });
+                
+                // 添加详细的省份边界
+                var detailedGeoJSONLayer = L.geoJSON(detailedChinaGeoJSON, {
+                    style: function(feature) {
+                        var provinceName = feature.properties.name;
+                        var isActive = activeProvinces.indexOf(provinceName) !== -1;
+                        console.log('检查省份:', provinceName, '是否有活动:', isActive);
+                        return {
+                            fillColor: isActive ? '#1e40af' : '#e5e7eb',
+                            weight: isActive ? 2 : 1,
+                            opacity: 0.8,
+                            color: isActive ? '#1e3a8a' : '#9ca3af',
+                            fillOpacity: isActive ? 0.4 : 0.15,
+                            zIndex: isActive ? 1000 : 1
+                        };
+                    },
+                    onEachFeature: function(feature, layer) {
+                        var provinceName = feature.properties.name;
+                        var isActive = activeProvinces.indexOf(provinceName) !== -1;
+                        
+                        if (isActive) {
+                            // 获取该省份对应的活动
+                            var provinceRaces = raceLocations.filter(function(race) {
+                                var pName = getProvinceName(race.location);
+                                return provinceNameMap[pName] === provinceName || pName === provinceName;
+                            });
+                            
+                            if (provinceRaces.length > 0) {
+                                var popupContent = '<div style="font-family: Arial, sans-serif;">';
+                                popupContent += '<h3 style="margin: 0 0 8px 0; color: #1e3a8a;">' + provinceName + '</h3>';
+                                popupContent += '<p><strong>活动数量:</strong> ' + provinceRaces.length + '</p>';
+                                popupContent += '<div style="max-height: 200px; overflow-y: auto;">';
+                                
+                                provinceRaces.forEach(function(race) {
+                                    popupContent += '<div style="margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #eee;">';
+                                    popupContent += '<div style="font-weight: 500;">' + race.year + ' ' + race.name + '</div>';
+                                    popupContent += '<div style="font-size: 12px; color: #666;">' + race.location + ' · ' + race.type + '</div>';
+                                    popupContent += '</div>';
+                                });
+                                
+                                popupContent += '</div></div>';
+                                layer.bindPopup(popupContent);
+                            }
+                        }
+                    }
+                });
+                
+                detailedGeoJSONLayer.addTo(map);
+                console.log('详细省份边界加载完成，图层已添加到地图');
+                
+                // 同时尝试从外部加载更详细的GeoJSON数据（可选）
+                console.log('尝试加载更详细的外部GeoJSON数据...');
                 fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
                     .then(function(response) {
-                        console.log('详细GeoJSON响应状态:', response.status);
+                        console.log('外部GeoJSON响应状态:', response.status);
                         if (!response.ok) {
-                            throw new Error('详细GeoJSON请求失败: ' + response.status);
+                            throw new Error('外部GeoJSON请求失败: ' + response.status);
                         }
                         return response.json();
                     })
-                    .then(function(detailedGeoJSONData) {
-                        console.log('详细GeoJSON数据加载成功');
-                        console.log('详细GeoJSON特性数量:', detailedGeoJSONData.features ? detailedGeoJSONData.features.length : '未知');
+                    .then(function(externalGeoJSONData) {
+                        console.log('外部GeoJSON数据加载成功，替换为更详细的边界');
                         
-                        // 调试：打印前几个省份名称，确保与activeProvinces匹配
-                        if (detailedGeoJSONData.features) {
-                            console.log('详细GeoJSON中的省份名称:');
-                            detailedGeoJSONData.features.slice(0, 10).forEach(function(feature) {
-                                console.log('-', feature.properties.name);
-                            });
-                        }
+                        // 移除之前的图层
+                        map.removeLayer(detailedGeoJSONLayer);
                         
-                        // 添加详细的省份边界
-                        var detailedGeoJSONLayer = L.geoJSON(detailedGeoJSONData, {
+                        // 添加更详细的省份边界
+                        var externalGeoJSONLayer = L.geoJSON(externalGeoJSONData, {
                             style: function(feature) {
                                 var provinceName = feature.properties.name;
                                 var isActive = activeProvinces.indexOf(provinceName) !== -1;
-                                console.log('检查省份:', provinceName, '是否有活动:', isActive);
                                 return {
                                     fillColor: isActive ? '#1e40af' : '#e5e7eb',
                                     weight: isActive ? 2 : 1,
@@ -2495,62 +2738,11 @@
                             }
                         });
                         
-                        detailedGeoJSONLayer.addTo(map);
-                        console.log('详细省份边界加载完成，图层已添加到地图');
+                        externalGeoJSONLayer.addTo(map);
+                        console.log('外部详细省份边界加载完成');
                     })
                     .catch(function(error) {
-                        console.error('详细GeoJSON数据加载失败，使用简化版本:', error);
-                        
-                        // 备用方法：使用简化的中国地图GeoJSON数据
-                        console.log('使用简化的中国地图GeoJSON数据');
-                        
-                        // 添加简化的省份边界
-                        var simplifiedGeoJSONLayer = L.geoJSON(chinaMapGeoJSON, {
-                            style: function(feature) {
-                                var provinceName = feature.properties.name;
-                                var isActive = activeProvinces.indexOf(provinceName) !== -1;
-                                return {
-                                    fillColor: isActive ? '#1e40af' : '#e5e7eb',
-                                    weight: isActive ? 2 : 1,
-                                    opacity: 0.8,
-                                    color: isActive ? '#1e3a8a' : '#9ca3af',
-                                    fillOpacity: isActive ? 0.4 : 0.15,
-                                    zIndex: isActive ? 1000 : 1
-                                };
-                            },
-                            onEachFeature: function(feature, layer) {
-                                var provinceName = feature.properties.name;
-                                var isActive = activeProvinces.indexOf(provinceName) !== -1;
-                                
-                                if (isActive) {
-                                    // 获取该省份对应的活动
-                                    var provinceRaces = raceLocations.filter(function(race) {
-                                        var pName = getProvinceName(race.location);
-                                        return provinceNameMap[pName] === provinceName || pName === provinceName;
-                                    });
-                                    
-                                    if (provinceRaces.length > 0) {
-                                        var popupContent = '<div style="font-family: Arial, sans-serif;">';
-                                        popupContent += '<h3 style="margin: 0 0 8px 0; color: #1e3a8a;">' + provinceName + '</h3>';
-                                        popupContent += '<p><strong>活动数量:</strong> ' + provinceRaces.length + '</p>';
-                                        popupContent += '<div style="max-height: 200px; overflow-y: auto;">';
-                                        
-                                        provinceRaces.forEach(function(race) {
-                                            popupContent += '<div style="margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #eee;">';
-                                            popupContent += '<div style="font-weight: 500;">' + race.year + ' ' + race.name + '</div>';
-                                            popupContent += '<div style="font-size: 12px; color: #666;">' + race.location + ' · ' + race.type + '</div>';
-                                            popupContent += '</div>';
-                                        });
-                                        
-                                        popupContent += '</div></div>';
-                                        layer.bindPopup(popupContent);
-                                    }
-                                }
-                            }
-                        });
-                        
-                        simplifiedGeoJSONLayer.addTo(map);
-                        console.log('简化省份边界加载完成，图层已添加到地图');
+                        console.log('外部GeoJSON数据加载失败（使用内嵌数据）:', error);
                     });
                 
                 // 添加简洁的红色标记点
