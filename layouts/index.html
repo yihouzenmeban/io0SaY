@@ -2238,340 +2238,495 @@
                 
                 // 底图已经在初始化时添加，这里不再重复添加
                 
-                // 定义真实的中国省份边界GeoJSON数据（简化版，但更接近真实形状）
-                var chinaProvincesGeoJSON = {
-                    "type": "FeatureCollection",
-                    "features": [
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "北京市"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[115.9, 40.3], [116.9, 40.3], [116.9, 39.8], [115.9, 39.8], [115.9, 40.3]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "上海市"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[121.1, 31.5], [121.9, 31.5], [121.9, 31.0], [121.1, 31.0], [121.1, 31.5]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "广东省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[109.6, 25.5], [117.8, 25.5], [117.8, 20.2], [113.5, 20.2], [110.8, 21.5], [109.6, 23.0], [109.6, 25.5]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "江苏省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[116.2, 35.1], [121.1, 35.1], [121.1, 31.2], [118.7, 31.2], [116.9, 32.5], [116.2, 34.0], [116.2, 35.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "河北省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[113.0, 42.8], [119.8, 42.8], [119.8, 38.0], [116.4, 36.0], [114.0, 37.5], [113.0, 39.0], [113.0, 42.8]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "甘肃省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[92.0, 42.8], [108.1, 42.8], [108.1, 35.0], [103.0, 32.0], [95.0, 34.0], [92.0, 37.0], [92.0, 42.8]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "重庆市"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[105.4, 32.4], [109.8, 32.4], [109.8, 28.0], [107.4, 28.0], [106.0, 29.5], [105.4, 30.5], [105.4, 32.4]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "浙江省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[118.0, 31.1], [123.1, 31.1], [123.1, 27.0], [119.4, 27.0], [118.5, 28.5], [118.0, 29.5], [118.0, 31.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "福建省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[116.4, 28.4], [120.6, 28.4], [120.6, 23.2], [117.4, 23.2], [116.8, 24.5], [116.4, 26.0], [116.4, 28.4]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "江西省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[113.2, 30.1], [117.1, 30.1], [117.1, 24.0], [114.4, 24.0], [113.8, 25.5], [113.2, 27.0], [113.2, 30.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "陕西省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[104.9, 39.6], [111.1, 39.6], [111.1, 34.0], [107.4, 32.0], [105.5, 34.0], [104.9, 36.0], [104.9, 39.6]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "四川省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[96.9, 34.6], [108.1, 34.6], [108.1, 28.0], [102.0, 26.0], [98.0, 28.0], [96.9, 31.0], [96.9, 34.6]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "山西省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[109.9, 40.6], [114.6, 40.6], [114.6, 35.0], [112.0, 35.0], [110.5, 37.0], [109.9, 38.5], [109.9, 40.6]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "湖南省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[107.9, 30.1], [114.1, 30.1], [114.1, 24.0], [110.0, 24.0], [108.5, 25.5], [107.9, 27.0], [107.9, 30.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "湖北省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[107.9, 33.1], [113.1, 33.1], [113.1, 29.0], [110.0, 29.0], [108.5, 30.0], [107.9, 31.5], [107.9, 33.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "海南省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[108.0, 20.1], [112.1, 20.1], [112.1, 18.0], [110.0, 18.0], [108.5, 18.8], [108.0, 19.5], [108.0, 20.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "贵州省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[102.9, 29.1], [109.1, 29.1], [109.1, 24.0], [106.0, 24.0], [104.0, 25.5], [102.9, 27.0], [102.9, 29.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "广西壮族自治区"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[103.9, 26.1], [112.1, 26.1], [112.1, 21.0], [107.0, 21.0], [104.5, 22.5], [103.9, 24.0], [103.9, 26.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "台湾省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[119.0, 26.1], [122.1, 26.1], [122.1, 21.0], [120.4, 21.0], [119.5, 22.5], [119.0, 24.0], [119.0, 26.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "内蒙古自治区"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[96.9, 43.1], [126.1, 43.1], [126.1, 40.0], [115.0, 37.0], [105.0, 39.0], [96.9, 41.0], [96.9, 43.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "河南省"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[109.9, 36.1], [116.1, 36.1], [116.1, 32.0], [113.0, 32.0], [111.0, 33.0], [109.9, 34.5], [109.9, 36.1]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "香港特别行政区"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[114.0, 22.5], [114.3, 22.5], [114.3, 22.2], [114.1, 22.2], [114.0, 22.3], [114.0, 22.5]]]
-                            }
-                        },
-                        {
-                            "type": "Feature",
-                            "properties": {"name": "澳门特别行政区"},
-                            "geometry": {
-                                "type": "Polygon",
-                                "coordinates": [[[113.5, 22.3], [113.6, 22.3], [113.6, 22.1], [113.5, 22.1], [113.5, 22.3]]]
-                            }
-                        }
-                    ]
-                };
+                // 使用在线GeoJSON数据源获取精确的中国省份边界
+                console.log('开始加载在线GeoJSON数据');
                 
-                // 使用完整的中国省份GeoJSON数据实现真实的行政边界
-                console.log('使用完整的中国省份GeoJSON数据');
-                
-                // 添加省份边界GeoJSON图层
-                var provinceLayers = {};
-                
-                L.geoJSON(chinaProvincesGeoJSON, {
-                    // 转换坐标顺序：GeoJSON是[经度, 纬度]，Leaflet是[纬度, 经度]
-                    coordsToLatLng: function(coords) {
-                        return new L.LatLng(coords[1], coords[0]);
-                    },
-                    style: function(feature) {
-                        var provinceName = feature.properties.name;
-                        var isActive = activeProvinces.indexOf(provinceName) !== -1;
+                // 从在线数据源加载中国省份边界GeoJSON
+                fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('成功加载GeoJSON数据');
                         
-                        return {
-                            fillColor: isActive ? '#1e40af' : '#e5e7eb',
-                            weight: isActive ? 2 : 1,
-                            opacity: 0.8,
-                            color: isActive ? '#1e3a8a' : '#9ca3af',
-                            fillOpacity: isActive ? 0.4 : 0.15,
-                            zIndex: isActive ? 1000 : 1
+                        // 添加省份边界GeoJSON图层
+                        var provinceLayers = {};
+                        
+                        L.geoJSON(data, {
+                            // 转换坐标顺序：GeoJSON是[经度, 纬度]，Leaflet是[纬度, 经度]
+                            coordsToLatLng: function(coords) {
+                                return new L.LatLng(coords[1], coords[0]);
+                            },
+                            style: function(feature) {
+                                var provinceName = feature.properties.name;
+                                var isActive = activeProvinces.indexOf(provinceName) !== -1;
+                                
+                                return {
+                                    fillColor: isActive ? '#1e40af' : '#e5e7eb',
+                                    weight: isActive ? 2 : 1,
+                                    opacity: 0.8,
+                                    color: isActive ? '#1e3a8a' : '#9ca3af',
+                                    fillOpacity: isActive ? 0.4 : 0.15,
+                                    zIndex: isActive ? 1000 : 1
+                                };
+                            },
+                            onEachFeature: function(feature, layer) {
+                                var provinceName = feature.properties.name;
+                                var isActive = activeProvinces.indexOf(provinceName) !== -1;
+                                
+                                // 添加弹窗
+                                if (isActive) {
+                                    // 获取该省份对应的活动
+                                    var provinceRaces = raceLocations.filter(function(race) {
+                                        var pName = getProvinceName(race.location);
+                                        return provinceNameMap[pName] === provinceName || pName === provinceName;
+                                    });
+                                    
+                                    if (provinceRaces.length > 0) {
+                                        var popupContent = '<div style="font-family: Arial, sans-serif;">';
+                                        popupContent += '<h3 style="margin: 0 0 8px 0; color: #1e3a8a;">' + provinceName + '</h3>';
+                                        popupContent += '<p><strong>活动数量:</strong> ' + provinceRaces.length + '</p>';
+                                        popupContent += '<div style="max-height: 200px; overflow-y: auto;">';
+                                        
+                                        provinceRaces.forEach(function(race) {
+                                            popupContent += '<div style="margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #eee;">';
+                                            popupContent += '<div style="font-weight: 500;">' + race.year + ' ' + race.name + '</div>';
+                                            popupContent += '<div style="font-size: 12px; color: #666;">' + race.location + ' · ' + race.type + '</div>';
+                                            popupContent += '</div>';
+                                        });
+                                        
+                                        popupContent += '</div></div>';
+                                        layer.bindPopup(popupContent);
+                                    }
+                                }
+                                
+                                // 存储图层引用
+                                provinceLayers[provinceName] = layer;
+                            }
+                        }).addTo(map);
+                        
+                        console.log('省份边界加载完成，共添加', Object.keys(provinceLayers).length, '个省份');
+                        
+                        // 添加简洁的红色标记点
+                        // 城市中心坐标映射（用于没有精确坐标的活动）
+                        var cityCenterMap = {
+                            '中国 香港': [22.319304, 114.169361],
+                            '中国 澳门': [22.198745, 113.543873],
+                            '中国 广东': [23.129111, 113.264385],
+                            '中国 江苏': [32.060255, 118.796877],
+                            '中国 河北': [38.042768, 114.514859],
+                            '中国 甘肃': [36.061099, 103.834347],
+                            '中国 北京': [39.904200, 116.407396],
+                            '中国 重庆': [29.431586, 106.912251],
+                            '中国 浙江': [30.274888, 120.155070],
+                            '中国 福建': [26.074508, 119.296494],
+                            '中国 江西': [28.682892, 115.857942],
+                            '中国 陕西': [34.265779, 108.954239],
+                            '中国 四川': [30.572815, 104.066801],
+                            '中国 山西': [37.870590, 112.548879],
+                            '中国 湖南': [28.228209, 112.938814],
+                            '中国 湖北': [30.592759, 114.305539],
+                            '中国 海南': [20.017377, 110.349229],
+                            '中国 贵州': [26.647003, 106.630225],
+                            '中国 广西': [22.817002, 108.366543],
+                            '中国 台湾': [25.033963, 121.565472],
+                            '中国 内蒙古': [40.818471, 111.670801],
+                            '中国 河南': [34.765556, 113.753601]
                         };
-                    },
-                    onEachFeature: function(feature, layer) {
-                        var provinceName = feature.properties.name;
-                        var isActive = activeProvinces.indexOf(provinceName) !== -1;
                         
-                        // 添加弹窗
-                        if (isActive) {
-                            // 获取该省份对应的活动
-                            var provinceRaces = raceLocations.filter(function(race) {
-                                var pName = getProvinceName(race.location);
-                                return provinceNameMap[pName] === provinceName || pName === provinceName;
+                        Object.values(cities).forEach(city => {
+                            // 创建红色标记点，类似于参考图片效果
+                            const customIcon = L.divIcon({
+                                className: 'custom-marker',
+                                html: `<div style="width: 8px; height: 8px; border-radius: 50%; background-color: red; border: 1px solid #fff; box-shadow: 0 0 1px rgba(0,0,0,0.5);"></div>`,
+                                iconSize: [8, 8],
+                                iconAnchor: [4, 4]
                             });
                             
-                            if (provinceRaces.length > 0) {
-                                var popupContent = '<div style="font-family: Arial, sans-serif;">';
-                                popupContent += '<h3 style="margin: 0 0 8px 0; color: #1e3a8a;">' + provinceName + '</h3>';
-                                popupContent += '<p><strong>活动数量:</strong> ' + provinceRaces.length + '</p>';
-                                popupContent += '<div style="max-height: 200px; overflow-y: auto;">';
-                                
-                                provinceRaces.forEach(function(race) {
-                                    popupContent += '<div style="margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #eee;">';
-                                    popupContent += '<div style="font-weight: 500;">' + race.year + ' ' + race.name + '</div>';
-                                    popupContent += '<div style="font-size: 12px; color: #666;">' + race.location + ' · ' + race.type + '</div>';
-                                    popupContent += '</div>';
-                                });
-                                
-                                popupContent += '</div></div>';
-                                layer.bindPopup(popupContent);
+                            // 添加标记点
+                            console.log('添加城市标记点:', city.name, city.lat, city.lng);
+                            
+                            // 如果没有精确坐标，使用城市中心坐标
+                            var markerLat = city.lat;
+                            var markerLng = city.lng;
+                            if (markerLat === 0 || markerLng === 0) {
+                                var provinceName = getProvinceName(city.name);
+                                if (cityCenterMap[provinceName]) {
+                                    markerLat = cityCenterMap[provinceName][0];
+                                    markerLng = cityCenterMap[provinceName][1];
+                                }
                             }
-                        }
+                            
+                            const marker = L.marker([markerLat, markerLng], { icon: customIcon }).addTo(map);
+                            
+                            // 构建弹出信息
+                            let popupContent = `
+                                <div style="font-family: 'SF Pro Display', 'Inter', sans-serif;">
+                                    <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #1e3a8a;">${city.name}</h3>
+                                    <div style="margin-bottom: 8px;">
+                                        <strong>活动数量:</strong> ${city.races.length}
+                                    </div>
+                                    <div style="max-height: 200px; overflow-y: auto;">
+                            `;
+                            
+                            // 添加城市的活动列表
+                            city.races.forEach(race => {
+                                popupContent += `
+                                    <div style="margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #eee;">
+                                        <div style="font-size: 14px; font-weight: 500; color: #333;">${race.year} ${race.name}</div>
+                                        <div style="font-size: 12px; color: #666;">${race.type}</div>
+                                    </div>
+                                `;
+                            });
+                            
+                            popupContent += `
+                                    </div>
+                                </div>
+                            `;
+                            
+                            // 添加弹出信息
+                            marker.bindPopup(popupContent);
+                        });
                         
-                        // 存储图层引用
-                        provinceLayers[provinceName] = layer;
-                    }
-                }).addTo(map);
-                
-                console.log('省份边界加载完成，共添加', Object.keys(provinceLayers).length, '个省份');
-                
-                // 添加简洁的红色标记点
-                // 城市中心坐标映射（用于没有精确坐标的活动）
-                var cityCenterMap = {
-                    '中国 香港': [22.319304, 114.169361],
-                    '中国 澳门': [22.198745, 113.543873],
-                    '中国 广东': [23.129111, 113.264385],
-                    '中国 江苏': [32.060255, 118.796877],
-                    '中国 河北': [38.042768, 114.514859],
-                    '中国 甘肃': [36.061099, 103.834347],
-                    '中国 北京': [39.904200, 116.407396],
-                    '中国 重庆': [29.431586, 106.912251],
-                    '中国 浙江': [30.274888, 120.155070],
-                    '中国 福建': [26.074508, 119.296494],
-                    '中国 江西': [28.682892, 115.857942],
-                    '中国 陕西': [34.265779, 108.954239],
-                    '中国 四川': [30.572815, 104.066801],
-                    '中国 山西': [37.870590, 112.548879],
-                    '中国 湖南': [28.228209, 112.938814],
-                    '中国 湖北': [30.592759, 114.305539],
-                    '中国 海南': [20.017377, 110.349229],
-                    '中国 贵州': [26.647003, 106.630225],
-                    '中国 广西': [22.817002, 108.366543],
-                    '中国 台湾': [25.033963, 121.565472],
-                    '中国 内蒙古': [40.818471, 111.670801],
-                    '中国 河南': [34.765556, 113.753601]
-                };
-                
-                Object.values(cities).forEach(city => {
-                    // 创建红色标记点，类似于参考图片效果
-                    const customIcon = L.divIcon({
-                        className: 'custom-marker',
-                        html: `<div style="width: 8px; height: 8px; border-radius: 50%; background-color: red; border: 1px solid #fff; box-shadow: 0 0 1px rgba(0,0,0,0.5);"></div>`,
-                        iconSize: [8, 8],
-                        iconAnchor: [4, 4]
+                        console.log('地图初始化完成');
+                    })
+                    .catch(error => {
+                        console.error('加载GeoJSON数据失败:', error);
+                        // 如果在线加载失败，使用备用的简化GeoJSON数据
+                        console.log('使用备用GeoJSON数据');
+                        
+                        // 备用的简化中国省份GeoJSON数据
+                        var fallbackGeoJSON = {
+                            "type": "FeatureCollection",
+                            "features": [
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "北京市"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[116.0, 40.3], [116.8, 40.3], [116.8, 39.8], [116.0, 39.8], [116.0, 40.3]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "上海市"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[121.2, 31.5], [121.8, 31.5], [121.8, 31.1], [121.2, 31.1], [121.2, 31.5]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "广东省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[109.6, 25.5], [117.8, 25.5], [117.8, 20.2], [113.5, 20.2], [110.8, 21.5], [109.6, 23.0], [109.6, 25.5]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "江苏省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[116.2, 35.1], [121.1, 35.1], [121.1, 31.2], [118.7, 31.2], [116.9, 32.5], [116.2, 34.0], [116.2, 35.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "河北省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[113.0, 42.8], [119.8, 42.8], [119.8, 38.0], [116.4, 36.0], [114.0, 37.5], [113.0, 39.0], [113.0, 42.8]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "甘肃省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[92.0, 42.8], [108.1, 42.8], [108.1, 35.0], [103.0, 32.0], [95.0, 34.0], [92.0, 37.0], [92.0, 42.8]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "重庆市"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[105.4, 32.4], [109.8, 32.4], [109.8, 28.0], [107.4, 28.0], [106.0, 29.5], [105.4, 30.5], [105.4, 32.4]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "浙江省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[118.0, 31.1], [123.1, 31.1], [123.1, 27.0], [119.4, 27.0], [118.5, 28.5], [118.0, 29.5], [118.0, 31.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "福建省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[116.4, 28.4], [120.6, 28.4], [120.6, 23.2], [117.4, 23.2], [116.8, 24.5], [116.4, 26.0], [116.4, 28.4]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "江西省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[113.2, 30.1], [117.1, 30.1], [117.1, 24.0], [114.4, 24.0], [113.8, 25.5], [113.2, 27.0], [113.2, 30.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "陕西省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[104.9, 39.6], [111.1, 39.6], [111.1, 34.0], [107.4, 32.0], [105.5, 34.0], [104.9, 36.0], [104.9, 39.6]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "四川省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[96.9, 34.6], [108.1, 34.6], [108.1, 28.0], [102.0, 26.0], [98.0, 28.0], [96.9, 31.0], [96.9, 34.6]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "山西省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[109.9, 40.6], [114.6, 40.6], [114.6, 35.0], [112.0, 35.0], [110.5, 37.0], [109.9, 38.5], [109.9, 40.6]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "湖南省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[107.9, 30.1], [114.1, 30.1], [114.1, 24.0], [110.0, 24.0], [108.5, 25.5], [107.9, 27.0], [107.9, 30.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "湖北省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[107.9, 33.1], [113.1, 33.1], [113.1, 29.0], [110.0, 29.0], [108.5, 30.0], [107.9, 31.5], [107.9, 33.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "海南省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[108.0, 20.1], [112.1, 20.1], [112.1, 18.0], [110.0, 18.0], [108.5, 18.8], [108.0, 19.5], [108.0, 20.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "贵州省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[102.9, 29.1], [109.1, 29.1], [109.1, 24.0], [106.0, 24.0], [104.0, 25.5], [102.9, 27.0], [102.9, 29.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "广西壮族自治区"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[103.9, 26.1], [112.1, 26.1], [112.1, 21.0], [107.0, 21.0], [104.5, 22.5], [103.9, 24.0], [103.9, 26.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "台湾省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[119.0, 26.1], [122.1, 26.1], [122.1, 21.0], [120.4, 21.0], [119.5, 22.5], [119.0, 24.0], [119.0, 26.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "内蒙古自治区"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[96.9, 43.1], [126.1, 43.1], [126.1, 40.0], [115.0, 37.0], [105.0, 39.0], [96.9, 41.0], [96.9, 43.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "河南省"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[109.9, 36.1], [116.1, 36.1], [116.1, 32.0], [113.0, 32.0], [111.0, 33.0], [109.9, 34.5], [109.9, 36.1]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "香港特别行政区"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[114.0, 22.5], [114.3, 22.5], [114.3, 22.2], [114.1, 22.2], [114.0, 22.3], [114.0, 22.5]]]
+                                    }
+                                },
+                                {
+                                    "type": "Feature",
+                                    "properties": {"name": "澳门特别行政区"},
+                                    "geometry": {
+                                        "type": "Polygon",
+                                        "coordinates": [[[113.5, 22.3], [113.6, 22.3], [113.6, 22.1], [113.5, 22.1], [113.5, 22.3]]]
+                                    }
+                                }
+                            ]
+                        };
+                        
+                        // 添加备用GeoJSON图层
+                        var provinceLayers = {};
+                        
+                        L.geoJSON(fallbackGeoJSON, {
+                            // 转换坐标顺序：GeoJSON是[经度, 纬度]，Leaflet是[纬度, 经度]
+                            coordsToLatLng: function(coords) {
+                                return new L.LatLng(coords[1], coords[0]);
+                            },
+                            style: function(feature) {
+                                var provinceName = feature.properties.name;
+                                var isActive = activeProvinces.indexOf(provinceName) !== -1;
+                                
+                                return {
+                                    fillColor: isActive ? '#1e40af' : '#e5e7eb',
+                                    weight: isActive ? 2 : 1,
+                                    opacity: 0.8,
+                                    color: isActive ? '#1e3a8a' : '#9ca3af',
+                                    fillOpacity: isActive ? 0.4 : 0.15,
+                                    zIndex: isActive ? 1000 : 1
+                                };
+                            },
+                            onEachFeature: function(feature, layer) {
+                                var provinceName = feature.properties.name;
+                                var isActive = activeProvinces.indexOf(provinceName) !== -1;
+                                
+                                // 添加弹窗
+                                if (isActive) {
+                                    // 获取该省份对应的活动
+                                    var provinceRaces = raceLocations.filter(function(race) {
+                                        var pName = getProvinceName(race.location);
+                                        return provinceNameMap[pName] === provinceName || pName === provinceName;
+                                    });
+                                    
+                                    if (provinceRaces.length > 0) {
+                                        var popupContent = '<div style="font-family: Arial, sans-serif;">';
+                                        popupContent += '<h3 style="margin: 0 0 8px 0; color: #1e3a8a;">' + provinceName + '</h3>';
+                                        popupContent += '<p><strong>活动数量:</strong> ' + provinceRaces.length + '</p>';
+                                        popupContent += '<div style="max-height: 200px; overflow-y: auto;">';
+                                        
+                                        provinceRaces.forEach(function(race) {
+                                            popupContent += '<div style="margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #eee;">';
+                                            popupContent += '<div style="font-weight: 500;">' + race.year + ' ' + race.name + '</div>';
+                                            popupContent += '<div style="font-size: 12px; color: #666;">' + race.location + ' · ' + race.type + '</div>';
+                                            popupContent += '</div>';
+                                        });
+                                        
+                                        popupContent += '</div></div>';
+                                        layer.bindPopup(popupContent);
+                                    }
+                                }
+                                
+                                // 存储图层引用
+                                provinceLayers[provinceName] = layer;
+                            }
+                        }).addTo(map);
+                        
+                        console.log('备用省份边界加载完成，共添加', Object.keys(provinceLayers).length, '个省份');
+                        
+                        // 添加简洁的红色标记点
+                        // 城市中心坐标映射（用于没有精确坐标的活动）
+                        var cityCenterMap = {
+                            '中国 香港': [22.319304, 114.169361],
+                            '中国 澳门': [22.198745, 113.543873],
+                            '中国 广东': [23.129111, 113.264385],
+                            '中国 江苏': [32.060255, 118.796877],
+                            '中国 河北': [38.042768, 114.514859],
+                            '中国 甘肃': [36.061099, 103.834347],
+                            '中国 北京': [39.904200, 116.407396],
+                            '中国 重庆': [29.431586, 106.912251],
+                            '中国 浙江': [30.274888, 120.155070],
+                            '中国 福建': [26.074508, 119.296494],
+                            '中国 江西': [28.682892, 115.857942],
+                            '中国 陕西': [34.265779, 108.954239],
+                            '中国 四川': [30.572815, 104.066801],
+                            '中国 山西': [37.870590, 112.548879],
+                            '中国 湖南': [28.228209, 112.938814],
+                            '中国 湖北': [30.592759, 114.305539],
+                            '中国 海南': [20.017377, 110.349229],
+                            '中国 贵州': [26.647003, 106.630225],
+                            '中国 广西': [22.817002, 108.366543],
+                            '中国 台湾': [25.033963, 121.565472],
+                            '中国 内蒙古': [40.818471, 111.670801],
+                            '中国 河南': [34.765556, 113.753601]
+                        };
+                        
+                        Object.values(cities).forEach(city => {
+                            // 创建红色标记点，类似于参考图片效果
+                            const customIcon = L.divIcon({
+                                className: 'custom-marker',
+                                html: `<div style="width: 8px; height: 8px; border-radius: 50%; background-color: red; border: 1px solid #fff; box-shadow: 0 0 1px rgba(0,0,0,0.5);"></div>`,
+                                iconSize: [8, 8],
+                                iconAnchor: [4, 4]
+                            });
+                            
+                            // 添加标记点
+                            console.log('添加城市标记点:', city.name, city.lat, city.lng);
+                            
+                            // 如果没有精确坐标，使用城市中心坐标
+                            var markerLat = city.lat;
+                            var markerLng = city.lng;
+                            if (markerLat === 0 || markerLng === 0) {
+                                var provinceName = getProvinceName(city.name);
+                                if (cityCenterMap[provinceName]) {
+                                    markerLat = cityCenterMap[provinceName][0];
+                                    markerLng = cityCenterMap[provinceName][1];
+                                }
+                            }
+                            
+                            const marker = L.marker([markerLat, markerLng], { icon: customIcon }).addTo(map);
+                            
+                            // 构建弹出信息
+                            let popupContent = `
+                                <div style="font-family: 'SF Pro Display', 'Inter', sans-serif;">
+                                    <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #1e3a8a;">${city.name}</h3>
+                                    <div style="margin-bottom: 8px;">
+                                        <strong>活动数量:</strong> ${city.races.length}
+                                    </div>
+                                    <div style="max-height: 200px; overflow-y: auto;">
+                            `;
+                            
+                            // 添加城市的活动列表
+                            city.races.forEach(race => {
+                                popupContent += `
+                                    <div style="margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #eee;">
+                                        <div style="font-size: 14px; font-weight: 500; color: #333;">${race.year} ${race.name}</div>
+                                        <div style="font-size: 12px; color: #666;">${race.type}</div>
+                                    </div>
+                                `;
+                            });
+                            
+                            popupContent += `
+                                    </div>
+                                </div>
+                            `;
+                            
+                            // 添加弹出信息
+                            marker.bindPopup(popupContent);
+                        });
+                        
+                        console.log('地图初始化完成（使用备用数据）');
                     });
-                    
-                    // 添加标记点
-                    console.log('添加城市标记点:', city.name, city.lat, city.lng);
-                    
-                    // 如果没有精确坐标，使用城市中心坐标
-                    var markerLat = city.lat;
-                    var markerLng = city.lng;
-                    if (markerLat === 0 || markerLng === 0) {
-                        var provinceName = getProvinceName(city.name);
-                        if (cityCenterMap[provinceName]) {
-                            markerLat = cityCenterMap[provinceName][0];
-                            markerLng = cityCenterMap[provinceName][1];
-                        }
-                    }
-                    
-                    const marker = L.marker([markerLat, markerLng], { icon: customIcon }).addTo(map);
-                    
-                    // 构建弹出信息
-                    let popupContent = `
-                        <div style="font-family: 'SF Pro Display', 'Inter', sans-serif;">
-                            <h3 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #1e3a8a;">${city.name}</h3>
-                            <div style="margin-bottom: 8px;">
-                                <strong>活动数量:</strong> ${city.races.length}
-                            </div>
-                            <div style="max-height: 200px; overflow-y: auto;">
-                    `;
-                    
-                    // 添加城市的活动列表
-                    city.races.forEach(race => {
-                        popupContent += `
-                            <div style="margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid #eee;">
-                                <div style="font-size: 14px; font-weight: 500; color: #333;">${race.year} ${race.name}</div>
-                                <div style="font-size: 12px; color: #666;">${race.type}</div>
-                            </div>
-                        `;
-                    });
-                    
-                    popupContent += `
-                            </div>
-                        </div>
-                    `;
-                    
-                    // 添加弹出信息
-                    marker.bindPopup(popupContent);
-                });
                 
-                console.log('地图初始化完成');
+
             } catch (error) {
                 console.error('地图初始化失败:', error);
             }
