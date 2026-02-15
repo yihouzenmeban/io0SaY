@@ -5,7 +5,7 @@ draft: false
 type: Trail Running
 status: DNF
 dnf_location: 一号桥
-location: 中国广东深圳
+location: 中国 广东 深圳
 ---
 
 # 2024 七道银湖山越野赛
