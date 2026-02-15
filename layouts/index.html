@@ -2238,12 +2238,18 @@
                 
                 // 底图已经在初始化时添加，这里不再重复添加
                 
-                // 使用在线GeoJSON数据源获取精确的中国省份边界
-                console.log('开始加载在线GeoJSON数据');
+                // 使用本地GeoJSON数据获取精确的中国省份边界
+                var geoJsonUrl = '{{ "data/100000_full.json" | relURL }}';
+                console.log('开始加载本地GeoJSON数据:', geoJsonUrl);
                 
-                // 从在线数据源加载中国省份边界GeoJSON
-                fetch('https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json')
-                    .then(response => response.json())
+                // 从本地静态资源加载中国省份边界GeoJSON
+                fetch(geoJsonUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('GeoJSON加载失败，HTTP状态码: ' + response.status);
+                        }
+                        return response.json();
+                    })
                     .then(data => {
                         console.log('成功加载GeoJSON数据');
                         
@@ -2390,7 +2396,7 @@
                     })
                     .catch(error => {
                         console.error('加载GeoJSON数据失败:', error);
-                        // 如果在线加载失败，使用备用的简化GeoJSON数据
+                        // 如果本地加载失败，使用备用的简化GeoJSON数据
                         console.log('使用备用GeoJSON数据');
                         
                         // 备用的简化中国省份GeoJSON数据
