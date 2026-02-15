@@ -5,7 +5,7 @@ draft: false
 type: Trail Running
 status: Completed
 distance: 20.06km
-location: 中国 深圳 梅林
+location: 中国 广东 深圳
 climb: 1432m
 time: 02:32:07
 ---
