@@ -2101,7 +2101,7 @@
                 const raceLocations = [
                     {{ $completedRaces := where .Site.RegularPages "Params.status" "in" (slice "Completed" "DNF") }}
                     {{ range $index, $race := $completedRaces }}
-                    { name: '{{ $race.Title }}', location: '{{ with $race.Params.location }}{{ . }}{{ end }}', lat: {{ with $race.Params.lat }}{{ . }}{{ else }}0{{ end }}, lng: {{ with $race.Params.lng }}{{ . }}{{ else }}0{{ end }}, type: '{{ with $race.Params.type }}{{ . }}{{ end }}', year:{{ $race.Date.Year }}, status: '{{ with $race.Params.status }}{{ . }}{{ else }}Completed{{ end }}' }{{ if not (eq (add $index 1) (len $completedRaces)) }},{{ end }}
+                    { name: '{{ $race.Title }}', location: '{{ with $race.Params.location }}{{ . }}{{ end }}', lat: {{ with $race.Params.lat }}{{ . }}{{ else }}0{{ end }}, lng: {{ with $race.Params.lng }}{{ . }}{{ else }}0{{ end }}, type: '{{ with $race.Params.type }}{{ . }}{{ end }}', year: {{ $race.Date.Year }}, status: '{{ with $race.Params.status }}{{ . }}{{ else }}Completed{{ end }}' }{{ if not (eq (add $index 1) (len $completedRaces)) }},{{ end }}
                     {{ end }}
                 ];
                 
